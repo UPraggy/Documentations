@@ -243,3 +243,10 @@ Para limitar os registros use:
 db.estados.find().limit(1) //nesse exemplo, vai aparecer apenas um registro
 
 
+
+/*---------------------- Filtrando e recebendo apenas alguns atributos ------------------------*/
+/* Coloque o seu filtro, e como segundo parametro, os atributos que deseja que apareça 
+use 0 para ocultar e 1 para mostrar*/
+
+db.estados.find({nome:"Amazonas"},{"cidades.cidade": 1, "_id":0})
+//{ "cidades" : [ { "cidade" : "Manaus" }, { "cidade" : "Borba" } ] }
