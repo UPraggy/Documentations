@@ -80,17 +80,30 @@ com o nome dado, o comando é o mesmo para inserir em
 collections que já existem
 */
 
+
 db.CollectionName.insert({atributo1:"valor", attr2:"valor2"}) //insere os dados na collection
+
+//caso dê erro tente usar os metodos
+db.CollectionName.insertOne({atributo1:"valor", attr2:"valor2"}) //para um registro
+
+db.student.insertMany([ //para varios registros
+{atributo132:"valor", attr132:"valor2"}, 
+{atributo34:"valor", attr34:"valor2"}
+]
+)
+
+
 
 //Ao inserir esse dado receberá um id em hex unico para sua identificação
 
 //Caso queira adcionar um id para subatributos, use:
 ObjectId() -> para gerar um hex unico
 
+
 db.CollectionName.insert({
 atributo1:"valor", 
 attr2:"valor2",
-attr3: {[
+attr3:[ 
 
     { 
        _id : ObjectId(),
@@ -99,6 +112,47 @@ attr3: {[
     { 
        _id : ObjectId(),
       subattr1: "valor324423"
-    },
+    }
 
 ]})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+db.estados.insertMany([
+{
+nome:"Minas Gerais", 
+sigla:"MG",
+cidades:[ 
+    { 
+       _id : ObjectId(),
+      cidade: "Belo Horizonte"
+    },
+    { 
+       _id : ObjectId(),
+      cidade: "Ouro Preto"
+    }
+]},
+{
+nome:"São Paulo", 
+sigla:"SP",
+cidades:[ { _id : ObjectId(),cidade: "São Paulo"},
+    { _id : ObjectId(), cidade: "Santo André"}]
+},
+{
+nome:"Amazonas", 
+sigla:"AM",
+cidades:[{ _id : ObjectId(), cidade: "Manaus" },
+    { _id : ObjectId(), cidade: "Borba"  }]
+}
+]);
