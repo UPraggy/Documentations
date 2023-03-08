@@ -1,0 +1,104 @@
+/*
+INDICE 
+
+# MongoDB
+
+*/
+
+
+
+/**
+MongoDB trabalha com dados organizados em um banco
+que dentro dele há documentos e nesses documentos são 
+armazenados collections onde se persiste
+os dados fortemente "agrupados" em formato de json
+
+Por ele ser um banco se eschema, ele não reclama,
+em ter mais de uma "coluna" ou estar faltando um dado
+
+MongoDB é case sensitive, ou seja, ele diferencia
+as maiusculas das minusculas*/
+
+
+
+/*                                      ########################################################### 
+                                        ###########################################################
+                                        ###################### COMANDOS BASICOS ###################
+                                        ###########################################################
+                                        ###########################################################*/
+                                        
+/*
+Mostrando bancos disponiveis
+*/
+show dbs
+
+/*
+Utilizando um banco, o mesmo comando serve para cria-lo
+*/
+
+use databaseName
+
+/*
+Para mostrar as collections, use:
+*/
+show collections
+
+
+/*
+Em geral, dentro da base de dados, os comandos estarão
+relacionados a mesma, ao chamar os comandos
+ele comummente usaram db.comando
+*/
+
+
+/*
+Criando Collections
+*/
+db.createCollections("collectionName")
+
+/*
+Deletando Collections
+*/
+
+db.collectionName.drop()
+
+
+
+
+
+/*                                      ########################################################### 
+                                        ###########################################################
+                                        ####################### INSERINDO DADOS ###################
+                                        ###########################################################
+                                        ###########################################################*/
+                                        
+                                        
+/*
+É possivel inserir dados sem que o collection esteja criado,
+basicamente ao inserir um dados essa collection será criada
+com o nome dado, o comando é o mesmo para inserir em 
+collections que já existem
+*/
+
+db.CollectionName.insert({atributo1:"valor", attr2:"valor2"}) //insere os dados na collection
+
+//Ao inserir esse dado receberá um id em hex unico para sua identificação
+
+//Caso queira adcionar um id para subatributos, use:
+ObjectId() -> para gerar um hex unico
+
+db.CollectionName.insert({
+atributo1:"valor", 
+attr2:"valor2",
+attr3: {[
+
+    { 
+       _id : ObjectId(),
+      subattr1: "valor4223"
+    },
+    { 
+       _id : ObjectId(),
+      subattr1: "valor324423"
+    },
+
+]})
