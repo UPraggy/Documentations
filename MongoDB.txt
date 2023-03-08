@@ -201,3 +201,15 @@ db.estados.findOne({nome: "Minas Gerais"})
 
 
 /*---------------------- Filtrando registros com condições ------------------------*/
+/*
+É possível filtrar com condições logicas como  "or e and" (ou e e)
+*/
+
+db.estados.find({$or: [{sigla: "MG"},{"nome" : "São Paulo"}])
+
+{ "_id" : ObjectId("64087be"), "nome" : "Minas Gerais", "sigla" : "MG", "cidades" : [ { "_id" : ObjectId("64087be6"), "cidade" : "Belo Horizonte" }, { "_id" : ObjectId("64087d7"), "cidade" : "Ouro Preto" } ] }
+{ "_id" : ObjectId("640f"), "nome" : "São Paulo", "sigla" : "SP", "cidades" : [ { "_id" : ObjectId("6404a"), "cidade" : "São Paulo" }, { "_id" : ObjectId("64088b"), "cidade" : "Santo André" } ] }
+
+
+db.estados.find({$and: [{sigla: "MG"},{"nome" : "São Paulo"}])
+//Não acha nada, não há estado com sigla MG e nome São Paulo
