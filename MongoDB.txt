@@ -129,6 +129,18 @@ attr3:[
 
 
 
+
+/*                                      ########################################################### 
+                                        ###########################################################
+                                        ##################### CONSULTANDO DADOS ###################
+                                        ###########################################################
+                                        ###########################################################*/
+
+
+/*
+COLECTION DE EXEMPLO
+*/
+
 db.estados.insertMany([
 {
 nome:"Minas Gerais", 
@@ -156,3 +168,36 @@ cidades:[{ _id : ObjectId(), cidade: "Manaus" },
     { _id : ObjectId(), cidade: "Borba"  }]
 }
 ]);
+
+
+
+
+/*---------------------- Visualizando todos registros ------------------------*/
+
+//Para ver os dados de uma colection especifica use:
+db.NomeCollection.find()
+Ex.:
+db.estados.find()
+/*
+{ "_id" : ObjectId("64087becd"), "nome" : "Minas Gerais", "sigla" : "MG", "cidades" : [ { "_id" : ObjectId("64087bed6"), "cidade" : "Belo Horizonte" }, { "_id" : ObjectId("6408755d7"), "cidade" : "Ouro Preto" } ] }
+{ "_id" : ObjectId("64087becd4"), "nome" : "São Paulo", "sigla" : "SP", "cidades" : [ { "_id" : ObjectId("64087bed8"), "cidade" : "São Paulo" }, { "_id" : ObjectId("64087be"), "cidade" : "Santo André" } ] }
+{ "_id" : ObjectId("64087becd"), "nome" : "Amazonas", "sigla" : "AM", "cidades" : [ { "_id" : ObjectId("640855da"), "cidade" : "Manaus" }, { "_id" : ObjectId("64087becb"), "cidade" : "Borba" } ] }
+*/
+
+
+//para visualizar mais formatado no terminal use:
+db.estados.find().pretty()
+
+
+/*---------------------- Filtrando registros ------------------------*/
+//para filtrar um registro especifico use:
+db.NomeCollection.findOne() //e coloque o objeto para filtrar
+
+EX.:
+db.estados.findOne({nome: "Minas Gerais"})
+
+{ "_id" : ObjectId("64087becd4f55dc"), "nome" : "Minas Gerais", "sigla" : "MG", "cidades" : [ { "_id" : ObjectId("64087bed6"), "cidade" : "Belo Horizonte" }, { "_id" : ObjectId("64087becdf55d7"), "cidade" : "Ouro Preto" } ] }
+
+
+
+/*---------------------- Filtrando registros com condições ------------------------*/
