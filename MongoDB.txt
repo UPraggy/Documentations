@@ -205,7 +205,7 @@ db.estados.findOne({nome: "Minas Gerais"})
 É possível filtrar com condições logicas como  "or e and" (ou e e)
 */
 
-db.estados.find({$or: [{sigla: "MG"},{"nome" : "São Paulo"}])
+db.estados.find({$or: [{sigla: "MG"},{"nome" : "São Paulo"}]})
 
 { "_id" : ObjectId("64087be"), "nome" : "Minas Gerais", "sigla" : "MG", "cidades" : [ { "_id" : ObjectId("64087be6"), "cidade" : "Belo Horizonte" }, { "_id" : ObjectId("64087d7"), "cidade" : "Ouro Preto" } ] }
 { "_id" : ObjectId("640f"), "nome" : "São Paulo", "sigla" : "SP", "cidades" : [ { "_id" : ObjectId("6404a"), "cidade" : "São Paulo" }, { "_id" : ObjectId("64088b"), "cidade" : "Santo André" } ] }
@@ -213,3 +213,33 @@ db.estados.find({$or: [{sigla: "MG"},{"nome" : "São Paulo"}])
 
 db.estados.find({$and: [{sigla: "MG"},{"nome" : "São Paulo"}])
 //Não acha nada, não há estado com sigla MG e nome São Paulo
+
+
+
+
+/*---------------------- Filtrando registros caso haja uma propriedade ------------------------*/
+db.estados.find({populacao : {$exists: true}}) 
+//não há registro com a propriedade populacao, mas se houvesse, ele seria filtrado
+
+
+
+/*---------------------- Limitando filtro ------------------------*/
+/*
+As vezes o collection um numero grande de registros,
+para verificar a quantidade use:
+*/
+
+db.estados.count()
+//3
+
+/*
+Para pular alguns registros use:
+*/
+db.estados.find().skip(1) //dentro do skip use para pular a quantidade de registros desejada
+
+/*
+Para limitar os registros use:
+*/
+db.estados.find().limit(1) //nesse exemplo, vai aparecer apenas um registro
+
+
