@@ -45,7 +45,7 @@ public class helloWorld{
   /*criando o metodo principal da classe a ser executado
   publico - modificador de acesso
   estatico - pode ser acessado sem instanciar , ou seja,
-  em vez de Classe.funcao(), pode se usar funcao()
+  em vez de InstanciaDeClasse.funcao(), pode se usar Classe.funcao()
   void - retorno vazio
   main - nome do metodo
   Neste exemplo recebeu um array de strings*/
