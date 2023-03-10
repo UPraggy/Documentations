@@ -273,10 +273,51 @@ Nota.: caso queira ver mais, siga o link abaixo.
 */
 Link -> https://www.mongodb.com/docs/manual/reference/operator/aggregation/
 
+/*
+Neste exemplo, usaremos a seguinte collection
+*/
+```js
+db.estados.drop()
 
-
-
-
+db.estados.insertMany([
+{
+nome:"Minas Gerais", 
+sigla:"MG",
+cidades:[ 
+    { _id : ObjectId(), cidade: "Belo Horizonte", populacao: 100000, capital: "capital" },
+    { _id : ObjectId(), cidade: "Ouro Preto", populacao: 5000 },
+    { _id : ObjectId(), cidade: "Ibirité", populacao: 10000 },
+    { _id : ObjectId(), cidade: "Contagem", populacao: 30000 }
+    ]},
+{
+nome:"São Paulo", 
+sigla:"SP",
+cidades:[ { _id : ObjectId(),cidade: "São Paulo", populacao: 80000, capital: "capital},
+    { _id : ObjectId(), cidade: "Santo André", populacao: 30000},
+    { _id : ObjectId(), cidade: "São Roque", populacao: 20000},
+    { _id : ObjectId(), cidade: "Ribeirão Preto", populacao: 3000},
+    ]
+},
+{
+nome:"Amazonas", 
+sigla:"AM",
+cidades:[{ _id : ObjectId(), cidade: "Manaus", populacao: 50000, capital: "capital },
+    { _id : ObjectId(), cidade: "Borba", populacao: 10000  },
+    { _id : ObjectId(), cidade: "Amaturá", populacao: 5000 },
+    { _id : ObjectId(), cidade: "Barreirinha", populacao: 6000 },
+    ]
+},
+{
+nome:"Amazonas", 
+sigla:"AM",
+cidades:[{ _id : ObjectId(), cidade: "Salvador", populacao: 110000 },
+    { _id : ObjectId(), cidade: "Barreiras", populacao: 30000  },
+    { _id : ObjectId(), cidade: "Porto Seguro", populacao: 20000 },
+    { _id : ObjectId(), cidade: "Irecê", populacao: 2000 },
+    ]
+}
+]);
+```
 
 
 
