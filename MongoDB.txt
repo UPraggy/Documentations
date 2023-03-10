@@ -250,3 +250,49 @@ use 0 para ocultar e 1 para mostrar*/
 
 db.estados.find({nome:"Amazonas"},{"cidades.cidade": 1, "_id":0})
 //{ "cidades" : [ { "cidade" : "Manaus" }, { "cidade" : "Borba" } ] }
+
+
+
+
+
+
+
+
+
+
+/*                                      ########################################################### 
+                                        ###########################################################
+                                        #################### CONSULTAS AGREGADAS ##################
+                                        ###########################################################
+                                        ###########################################################*/
+/*
+A API do MongoDB tem o chamado PipeLine de Agregação onde se utiliza um padrão chamado Pipes and Filters,
+onde os dados seguem por um PipeLine ("Tubo") e conforme passam são filtrados de acordo com
+funções, abaixo algumas funções e exemplos.
+Nota.: caso queira ver mais, siga o link abaixo. 
+*/
+Link -> https://www.mongodb.com/docs/manual/reference/operator/aggregation/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
+
+
+https://www.udemy.com/course/curso-web
