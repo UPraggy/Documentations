@@ -299,8 +299,23 @@ cidades:[{ _id : ObjectId(), cidade: "Salvador", populacao: 110000, capital: "ca
 ]);
 ```
 
-
-
+## Utilizando Operadores
+### Neste exemplo será usado o operador $project
+```js
+db.estados.aggregate([
+  {
+     //colocando etapas
+     //A etapa project serve para filtrar quais campos são desejados
+    $project : {nome:1, "cidades.cidade":1, populacao:1, _id:0}
+    
+  }
+  ])
+  
+  { "nome" : "Minas Gerais", "cidades" : [ { "cidade" : "Belo Horizonte" }, { "cidade" : "Ouro Preto" }, { "cidade" : "Ibirité" }, { "cidade" : "Contagem" } ] }
+{ "nome" : "São Paulo", "cidades" : [ { "cidade" : "São Paulo" }, { "cidade" : "Santo André" }, { "cidade" : "São Roque" }, { "cidade" : "Ribeirão Preto" } ] }
+{ "nome" : "Amazonas", "cidades" : [ { "cidade" : "Manaus" }, { "cidade" : "Borba" }, { "cidade" : "Amaturá" }, { "cidade" : "Barreirinha" } ] }
+{ "nome" : "Amazonas", "cidades" : [ { "cidade" : "Salvador" }, { "cidade" : "Barreiras" }, { "cidade" : "Porto Seguro" }, { "cidade" : "Irecê" } ] }
+```
 
 
 
