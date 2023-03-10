@@ -272,28 +272,28 @@ cidades:[
 {
 nome:"São Paulo", 
 sigla:"SP",
-cidades:[ { _id : ObjectId(),cidade: "São Paulo", populacao: 80000, capital: "capital},
+cidades:[ { _id : ObjectId(),cidade: "São Paulo", populacao: 80000, capital: "capital"},
     { _id : ObjectId(), cidade: "Santo André", populacao: 30000},
     { _id : ObjectId(), cidade: "São Roque", populacao: 20000},
-    { _id : ObjectId(), cidade: "Ribeirão Preto", populacao: 3000},
+    { _id : ObjectId(), cidade: "Ribeirão Preto", populacao: 3000}
     ]
 },
 {
 nome:"Amazonas", 
 sigla:"AM",
-cidades:[{ _id : ObjectId(), cidade: "Manaus", populacao: 50000, capital: "capital },
+cidades:[{ _id : ObjectId(), cidade: "Manaus", populacao: 50000, capital: "capital" },
     { _id : ObjectId(), cidade: "Borba", populacao: 10000  },
     { _id : ObjectId(), cidade: "Amaturá", populacao: 5000 },
-    { _id : ObjectId(), cidade: "Barreirinha", populacao: 6000 },
+    { _id : ObjectId(), cidade: "Barreirinha", populacao: 6000 }
     ]
 },
 {
 nome:"Amazonas", 
 sigla:"AM",
-cidades:[{ _id : ObjectId(), cidade: "Salvador", populacao: 110000 },
+cidades:[{ _id : ObjectId(), cidade: "Salvador", populacao: 110000, capital: "capital" },
     { _id : ObjectId(), cidade: "Barreiras", populacao: 30000  },
     { _id : ObjectId(), cidade: "Porto Seguro", populacao: 20000 },
-    { _id : ObjectId(), cidade: "Irecê", populacao: 2000 },
+    { _id : ObjectId(), cidade: "Irecê", populacao: 2000 }
     ]
 }
 ]);
