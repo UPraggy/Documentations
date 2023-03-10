@@ -304,17 +304,18 @@ cidades:[{ _id : ObjectId(), cidade: "Salvador", populacao: 110000, capital: "ca
 ```js
 db.estados.aggregate([
   {
-     //colocando etapas
-     //A etapa project serve para filtrar quais campos são desejados
-    $project : {nome:1, "cidades.cidade":1, populacao:1, _id:0}
+     //quando é usado o nome do campo como valor Cava:valor, como em cidades.populacao
+     //é necessario usar o operador "$"
+    $project : {populacao : {$sum : "$cidades.populacao" }, sigla:1, _id:0}
     
   }
   ])
-  
-  { "nome" : "Minas Gerais", "cidades" : [ { "cidade" : "Belo Horizonte" }, { "cidade" : "Ouro Preto" }, { "cidade" : "Ibirité" }, { "cidade" : "Contagem" } ] }
-{ "nome" : "São Paulo", "cidades" : [ { "cidade" : "São Paulo" }, { "cidade" : "Santo André" }, { "cidade" : "São Roque" }, { "cidade" : "Ribeirão Preto" } ] }
-{ "nome" : "Amazonas", "cidades" : [ { "cidade" : "Manaus" }, { "cidade" : "Borba" }, { "cidade" : "Amaturá" }, { "cidade" : "Barreirinha" } ] }
-{ "nome" : "Amazonas", "cidades" : [ { "cidade" : "Salvador" }, { "cidade" : "Barreiras" }, { "cidade" : "Porto Seguro" }, { "cidade" : "Irecê" } ] }
+ 
+
+{ "sigla" : "MG", "populacao" : 145000 }
+{ "sigla" : "SP", "populacao" : 133000 }
+{ "sigla" : "AM", "populacao" : 71000 }
+{ "sigla" : "AM", "populacao" : 162000 }
 ```
 
 
