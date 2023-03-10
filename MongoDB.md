@@ -1,89 +1,70 @@
-/*
-INDICE 
-
 # MongoDB
 
-*/
+## INDICE 
 
 
 
-/**
-MongoDB trabalha com dados organizados em um banco
-que dentro dele há documentos e nesses documentos são 
-armazenados collections onde se persiste
-os dados fortemente "agrupados" em formato de json
 
-Por ele ser um banco se eschema, ele não reclama,
-em ter mais de uma "coluna" ou estar faltando um dado
+# INTRODUCAO
 
-MongoDB é case sensitive, ou seja, ele diferencia
-as maiusculas das minusculas*/
+
+### MongoDB trabalha com dados organizados em um banco<br>que dentro dele há documentos e nesses documentos são <br>armazenados collections onde se persiste<br>os dados fortemente "agrupados" em formato de json<br><br>Por ele ser um banco se eschema, ele não reclama,<br>em ter mais de uma "coluna" ou estar faltando um dado<br><br>MongoDB é case sensitive, ou seja, ele diferencia<br>as maiusculas das minusculas
 
 
 
-/*                                      ########################################################### 
-                                        ###########################################################
-                                        ###################### COMANDOS BASICOS ###################
-                                        ###########################################################
-                                        ###########################################################*/
+# COMANDOS BASICOS
                                         
-/*
-Mostrando bancos disponiveis
-*/
+
+### Mostrando bancos disponiveis
+```js
 show dbs
+```
 
-/*
-Utilizando um banco, o mesmo comando serve para cria-lo
-*/
+### Utilizando um banco, o mesmo comando serve para cria-lo
 
+```js
 use databaseName
+```
 
-/*
-Para mostrar as collections, use:
-*/
+## Para mostrar as collections, use:
+
+```js
 show collections
+```
 
 
-/*
-Em geral, dentro da base de dados, os comandos estarão
-relacionados a mesma, ao chamar os comandos
-ele comummente usaram db.comando
-*/
+### Em geral, dentro da base de dados, os comandos estarão<br>relacionados a mesma, ao chamar os comandos<br>ele comummente usaram db.comando
 
 
-/*
-Criando Collections
-*/
+
+
+## Criando Collections
+```js
 db.createCollections("collectionName")
+```
 
-/*
-Deletando Collections
-*/
+## Deletando Collections
 
+```js
 db.collectionName.drop()
+```
 
 
 
 
-
-/*                                      ########################################################### 
-                                        ###########################################################
-                                        ####################### INSERINDO DADOS ###################
-                                        ###########################################################
-                                        ###########################################################*/
+# INSERINDO DADOS 
                                         
                                         
-/*
-É possivel inserir dados sem que o collection esteja criado,
-basicamente ao inserir um dados essa collection será criada
-com o nome dado, o comando é o mesmo para inserir em 
-collections que já existem
-*/
+
+### É possivel inserir dados sem que o collection esteja criado,<br>basicamente ao inserir um dados essa collection será criada<br>com o nome dado, o comando é o mesmo para inserir em <br>collections que já existem
 
 
+```js
 db.CollectionName.insert({atributo1:"valor", attr2:"valor2"}) //insere os dados na collection
+```
+### caso dê erro tente usar os metodos
 
-//caso dê erro tente usar os metodos
+```js
 db.CollectionName.insertOne({atributo1:"valor", attr2:"valor2"}) //para um registro
 
 db.student.insertMany([ //para varios registros
@@ -91,12 +72,14 @@ db.student.insertMany([ //para varios registros
 {atributo34:"valor", attr34:"valor2"}
 ]
 )
+```
 
 
+### Ao inserir esse dado receberá um id em hex unico para sua identificação
 
-//Ao inserir esse dado receberá um id em hex unico para sua identificação
+### Caso queira adcionar um id para subatributos, use:
 
-//Caso queira adcionar um id para subatributos, use:
+```js
 ObjectId() -> para gerar um hex unico
 
 
@@ -116,6 +99,7 @@ attr3:[
 
 ]})
 
+```
 
 
 
@@ -129,18 +113,13 @@ attr3:[
 
 
 
-
-/*                                      ########################################################### 
-                                        ###########################################################
-                                        ##################### CONSULTANDO DADOS ###################
-                                        ###########################################################
-                                        ###########################################################*/
+# CONSULTANDO DADOS 
 
 
-/*
-COLECTION DE EXEMPLO
-*/
 
+## COLECTION DE EXEMPLO
+
+```js
 db.estados.insertMany([
 {
 nome:"Minas Gerais", 
@@ -168,13 +147,14 @@ cidades:[{ _id : ObjectId(), cidade: "Manaus" },
     { _id : ObjectId(), cidade: "Borba"  }]
 }
 ]);
+```
 
 
 
+## Visualizando todos registros 
 
-/*---------------------- Visualizando todos registros ------------------------*/
-
-//Para ver os dados de uma colection especifica use:
+### Para ver os dados de uma colection especifica use:
+```js
 db.NomeCollection.find()
 Ex.:
 db.estados.find()
@@ -182,74 +162,79 @@ db.estados.find()
 { "_id" : ObjectId("64087becd"), "nome" : "Minas Gerais", "sigla" : "MG", "cidades" : [ { "_id" : ObjectId("64087bed6"), "cidade" : "Belo Horizonte" }, { "_id" : ObjectId("6408755d7"), "cidade" : "Ouro Preto" } ] }
 { "_id" : ObjectId("64087becd4"), "nome" : "São Paulo", "sigla" : "SP", "cidades" : [ { "_id" : ObjectId("64087bed8"), "cidade" : "São Paulo" }, { "_id" : ObjectId("64087be"), "cidade" : "Santo André" } ] }
 { "_id" : ObjectId("64087becd"), "nome" : "Amazonas", "sigla" : "AM", "cidades" : [ { "_id" : ObjectId("640855da"), "cidade" : "Manaus" }, { "_id" : ObjectId("64087becb"), "cidade" : "Borba" } ] }
-*/
+```
 
 
-//para visualizar mais formatado no terminal use:
+### para visualizar mais formatado no terminal use:
+```js
 db.estados.find().pretty()
+```
 
-
-/*---------------------- Filtrando registros ------------------------*/
-//para filtrar um registro especifico use:
+## Filtrando registros 
+### para filtrar um registro especifico use:
+```js
 db.NomeCollection.findOne() //e coloque o objeto para filtrar
-
 EX.:
 db.estados.findOne({nome: "Minas Gerais"})
 
 { "_id" : ObjectId("64087becd4f55dc"), "nome" : "Minas Gerais", "sigla" : "MG", "cidades" : [ { "_id" : ObjectId("64087bed6"), "cidade" : "Belo Horizonte" }, { "_id" : ObjectId("64087becdf55d7"), "cidade" : "Ouro Preto" } ] }
+```
 
 
+##  Filtrando registros com condições 
 
-/*---------------------- Filtrando registros com condições ------------------------*/
-/*
-É possível filtrar com condições logicas como  "or e and" (ou e e)
-*/
+### É possível filtrar com condições logicas como  "or e and" (ou e e)
 
+```js
 db.estados.find({$or: [{sigla: "MG"},{"nome" : "São Paulo"}]})
 
 { "_id" : ObjectId("64087be"), "nome" : "Minas Gerais", "sigla" : "MG", "cidades" : [ { "_id" : ObjectId("64087be6"), "cidade" : "Belo Horizonte" }, { "_id" : ObjectId("64087d7"), "cidade" : "Ouro Preto" } ] }
 { "_id" : ObjectId("640f"), "nome" : "São Paulo", "sigla" : "SP", "cidades" : [ { "_id" : ObjectId("6404a"), "cidade" : "São Paulo" }, { "_id" : ObjectId("64088b"), "cidade" : "Santo André" } ] }
+```
 
-
+```js
 db.estados.find({$and: [{sigla: "MG"},{"nome" : "São Paulo"}])
 //Não acha nada, não há estado com sigla MG e nome São Paulo
+```
 
 
 
-
-/*---------------------- Filtrando registros caso haja uma propriedade ------------------------*/
+## Filtrando registros caso haja uma propriedade 
+```js
 db.estados.find({populacao : {$exists: true}}) 
 //não há registro com a propriedade populacao, mas se houvesse, ele seria filtrado
+```
 
 
+##  Limitando filtro 
 
-/*---------------------- Limitando filtro ------------------------*/
-/*
-As vezes o collection um numero grande de registros,
-para verificar a quantidade use:
-*/
+### As vezes o collection um numero grande de registros, <br> para verificar a quantidade use:
 
+```js
 db.estados.count()
 //3
+```
 
-/*
-Para pular alguns registros use:
-*/
+### Para pular alguns registros use:
+
+```js
 db.estados.find().skip(1) //dentro do skip use para pular a quantidade de registros desejada
+```
 
-/*
-Para limitar os registros use:
-*/
+### Para limitar os registros use:
+```js
 db.estados.find().limit(1) //nesse exemplo, vai aparecer apenas um registro
+```
 
 
+## Filtrando e recebendo apenas alguns atributos 
+Coloque o seu filtro, e como segundo parametro, os atributos que deseja que apareça 
+use 0 para ocultar e 1 para mostrar
 
-/*---------------------- Filtrando e recebendo apenas alguns atributos ------------------------*/
-/* Coloque o seu filtro, e como segundo parametro, os atributos que deseja que apareça 
-use 0 para ocultar e 1 para mostrar*/
-
+```js
 db.estados.find({nome:"Amazonas"},{"cidades.cidade": 1, "_id":0})
 //{ "cidades" : [ { "cidade" : "Manaus" }, { "cidade" : "Borba" } ] }
+```
 
 
 
@@ -259,23 +244,18 @@ db.estados.find({nome:"Amazonas"},{"cidades.cidade": 1, "_id":0})
 
 
 
+# CONSULTAS AGREGADAS 
 
-/*                                      ########################################################### 
-                                        ###########################################################
-                                        #################### CONSULTAS AGREGADAS ##################
-                                        ###########################################################
-                                        ###########################################################*/
-/*
 A API do MongoDB tem o chamado PipeLine de Agregação onde se utiliza um padrão chamado Pipes and Filters,
 onde os dados seguem por um PipeLine ("Tubo") e conforme passam são filtrados de acordo com
 funções, abaixo algumas funções e exemplos.
 Nota.: caso queira ver mais, siga o link abaixo. 
-*/
-Link -> https://www.mongodb.com/docs/manual/reference/operator/aggregation/
 
-/*
-Neste exemplo, usaremos a seguinte collection
-*/
+[Link](https://www.mongodb.com/docs/manual/reference/operator/aggregation/)
+
+
+### Neste exemplo, usaremos a seguinte collection
+
 ```js
 db.estados.drop()
 
