@@ -318,23 +318,47 @@ db.estados.aggregate([
 { "sigla" : "AM", "populacao" : 162000 }
 ```
 
-### Utilizando o operador $filter dentro de project para filtrar,<br>as cidades com capitais,é usado o operador $eq para<br>comparações
+### Utilizando o operador $filter dentro de project para filtrar,<br>as cidades com capitais,é usado o operador $eq para<br>comparações de igualdade<br>Nota.: a função aggregate permite concatenar em um array diversas etapas
 ```js
 db.estados.aggregate([
   {
 
     $project : {capital : {
       $filter : {
+      //variavel ou array de entrada
         input: "$cidades",
+          //condicao, se cidades.capital tiver capital retorne verdadeiro
          cond: {$eq: ["$$cidades.capital", "capital"]},
+         //nome da variavel
          as: "cidades"
         
       }
 
-    }, sigla:1, _id:0}
-    
-  }
+    }, nome:1, _id:0, cidade: 1}
+  },
+  
+  /*
+  Primeira etapa de filtragem, filtrando apenas campos com nome capital
+  { "nome" : "Minas Gerais", "capital" : [ { "_id" : ObjectId("640f7"), "cidade" : "Belo Horizonte", "populacao" : 100000, "capital" : "capital" } ] }...
+  */
+  { $unwind: "$capital" },
+  /*
+  Segund etapa de filtragem usando unwind, para realizar "destructuring de array", separar elementos dos arrays
+  { "nome" : "Minas Gerais", "capital" : { "_id" : ObjectId("640d"), "cidade" : "Belo Horizonte", "populacao" : 100000, "capital" : "capital" } }
+  */
+  {$project : {nome:1, capital: "$capital.cidade"}}
+  //Terceira, apresentando dados com filtro de campos desejados
   ])
+  
+  
+  
+/*
+SAIDA
+{ "nome" : "Minas Gerais", "capital" : "Belo Horizonte" }
+{ "nome" : "São Paulo", "capital" : "São Paulo" }
+{ "nome" : "Amazonas", "capital" : "Manaus" }
+{ "nome" : "Amazonas", "capital" : "Salvador" }
+*/  
 ```
 
 
