@@ -320,18 +320,20 @@ db.estados.aggregate([
 
 
 db.estados.aggregate([
-  {$unwind: '$cidades'},
   {
-    $project : {cidade :  {
-            $filter : {
-               input: "$cidade",
-               as: "capital",
-               con: { $eq: [ "$capital", 'capital' ] }
-                                      }
-      
-                      }
-      
-    }
+
+    $project : {capital : {
+      $filter : {
+        input: "$cidades",
+         cond: {$eq: ["$$cidades.capital", "capital"]},
+         as: "cidades"
+        
+      }
+
+    }, sigla:1, _id:0, cidade: 1}
+    
+  }
+  ])
 
 
 
