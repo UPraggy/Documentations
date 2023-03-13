@@ -318,7 +318,8 @@ db.estados.aggregate([
 { "sigla" : "AM", "populacao" : 162000 }
 ```
 
-
+### Utilizando o operador $filter dentro de project para filtrar,<br>as cidades com capitais,é usado o operador $eq para<br>comparações
+```js
 db.estados.aggregate([
   {
 
@@ -330,11 +331,11 @@ db.estados.aggregate([
         
       }
 
-    }, sigla:1, _id:0, cidade: 1}
+    }, sigla:1, _id:0}
     
   }
   ])
-
+```
 
 
 
