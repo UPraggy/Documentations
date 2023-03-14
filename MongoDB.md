@@ -447,12 +447,51 @@ db.estados.aggregate([ // filtrando para visualizar atualização
   
  //SAIDA
  /*
- de acordo com o filtro foi achado apenas um objeto e ele foi atualizado
+ De acordo com o filtro foi achado apenas um objeto e ele foi atualizado
+ 
  WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 }) 
+ 
 { "nome" : "Minas Gerais", "sigla" : "MG", "regiao" : "Sudeste" }
 */
 ```
 
+### Adicionando atributos a um campo existente
+
+
+```js
+//Para adicionar um atributo/elemento em um campo já existente, use "push"
+db.estados.update({sigla: "MG"}, {
+  $push : {
+    cidades: {
+      _id : ObjectId(),
+      cidade : "Montes Claros",
+      populacao: 5000,
+      
+    }
+    
+  }
+  
+})
+
+db.estados.aggregate([
+  {$match : {sigla: "MG"}},
+  {$project: { _id: 0, "cidades._id":0, "cidades.capital": 0}},
+  {$project: {cidades:1}},
+  {$unwind: "$cidades"}
+  ])
+  
+/*
+SAIDA
+
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+{ "cidades" : { "cidade" : "Belo Horizonte", "populacao" : 100000 } }
+{ "cidades" : { "cidade" : "Ouro Preto", "populacao" : 5000 } }
+{ "cidades" : { "cidade" : "Ibirité", "populacao" : 10000 } }
+{ "cidades" : { "cidade" : "Contagem", "populacao" : 30000 } }
+{ "cidades" : { "cidade" : "Montes Claros", "populacao" : 5000 } }
+
+*/
 
 /*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
 
