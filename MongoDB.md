@@ -288,8 +288,8 @@ cidades:[{ _id : ObjectId(), cidade: "Manaus", populacao: 50000, capital: "capit
     ]
 },
 {
-nome:"Amazonas", 
-sigla:"AM",
+nome:"Bahia", 
+sigla:"BA",
 cidades:[{ _id : ObjectId(), cidade: "Salvador", populacao: 110000, capital: "capital" },
     { _id : ObjectId(), cidade: "Barreiras", populacao: 30000  },
     { _id : ObjectId(), cidade: "Porto Seguro", populacao: 20000 },
@@ -315,7 +315,7 @@ db.estados.aggregate([
 { "sigla" : "MG", "populacao" : 145000 }
 { "sigla" : "SP", "populacao" : 133000 }
 { "sigla" : "AM", "populacao" : 71000 }
-{ "sigla" : "AM", "populacao" : 162000 }
+{ "sigla" : "BA", "populacao" : 162000 }
 ```
 
 ### Utilizando o operador $filter dentro de project para filtrar,<br>as cidades com capitais,é usado o operador $eq para<br>comparações de igualdade<br>Nota.: a função aggregate permite concatenar em um array diversas etapas
@@ -357,20 +357,39 @@ SAIDA
 { "nome" : "Minas Gerais", "capital" : "Belo Horizonte" }
 { "nome" : "São Paulo", "capital" : "São Paulo" }
 { "nome" : "Amazonas", "capital" : "Manaus" }
-{ "nome" : "Amazonas", "capital" : "Salvador" }
+{ "nome" : "Bahia", "capital" : "Salvador" }
 */  
 ```
 
 
 
+### Mais um exemplo de aggregate, dessa vez, vamos filtrar as cidades com<br>população maior ou igual a  30.000 e mostrar<br>em ordem decrescente
 
-
-
-
-
+```js
+db.estados.aggregate([
+  {$project: {
+      populacaoMaior30Mil : {
+        $filter:{
+            input: "$cidades",
+            as : "cidades",
+            cond: {$gte : ["$$cidades.populacao", 30000]} //gte -> maior ou igual
+        }
+      },_id:0,sigla:1
+    }
+  },
+  {$unwind : "$populacaoMaior30Mil"}, // tira os dados do array, realizando destructuring
+  {$project:{ // pegando campos desejados
+          sigla: 1, cidade: "$populacaoMaior30Mil.cidade", populacao : "$populacaoMaior30Mil.populacao"
+        }
+  },
+  {$sort: {populacao: -1}} //ordenando em ordem decrescente
+  
+  ])
+```
 
 
 /*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
 
 
 https://www.udemy.com/course/curso-web
+https://www.mongodb.com/docs/manual/
