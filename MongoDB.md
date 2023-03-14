@@ -8,7 +8,7 @@
 # INTRODUCAO
 
 
-### MongoDB trabalha com dados organizados em um banco<br>que dentro dele há documentos e nesses documentos são <br>armazenados collections onde se persiste<br>os dados fortemente "agrupados" em formato de json<br><br>Por ele ser um banco se eschema, ele não reclama,<br>em ter mais de uma "coluna" ou estar faltando um dado<br><br>MongoDB é case sensitive, ou seja, ele diferencia<br>as maiusculas das minusculas
+### MongoDB trabalha com dados organizados em um banco<br>que dentro dele há documentos e nesses documentos são  armazenados collections onde se persiste os dados fortemente "agrupados" em formato de json<br><br>Por ele ser um banco se eschema, ele não reclama, em ter mais de uma "coluna" ou estar faltando um dado<br><br>MongoDB é case sensitive, ou seja, ele diferencia as maiusculas das minusculas
 
 
 
@@ -33,7 +33,7 @@ show collections
 ```
 
 
-### Em geral, dentro da base de dados, os comandos estarão<br>relacionados a mesma, ao chamar os comandos<br>ele comummente usaram db.comando
+### Em geral, dentro da base de dados, os comandos estarão relacionados a mesma, ao chamar os comandos ele comummente usaram db.comando
 
 
 
@@ -56,7 +56,7 @@ db.collectionName.drop()
                                         
                                         
 
-### É possivel inserir dados sem que o collection esteja criado,<br>basicamente ao inserir um dados essa collection será criada<br>com o nome dado, o comando é o mesmo para inserir em <br>collections que já existem
+### É possivel inserir dados sem que o collection esteja criado, basicamente ao inserir um dados essa collection será criada com o nome dado, o comando é o mesmo para inserir em  collections que já existem
 
 
 ```js
@@ -318,7 +318,7 @@ db.estados.aggregate([
 { "sigla" : "BA", "populacao" : 162000 }
 ```
 
-### Utilizando o operador $filter dentro de project para filtrar,<br>as cidades com capitais,é usado o operador $eq para<br>comparações de igualdade<br>Nota.: a função aggregate permite concatenar em um array diversas etapas
+### Utilizando o operador $filter dentro de project para filtrar, as cidades com capitais,é usado o operador $eq para comparações de igualdade<br>Nota.: a função aggregate permite concatenar em um array diversas etapas
 ```js
 db.estados.aggregate([
   {
@@ -363,7 +363,7 @@ SAIDA
 
 
 
-### Mais um exemplo de aggregate, dessa vez, vamos filtrar as cidades com<br>população maior ou igual a  30.000 e mostrar<br>em ordem decrescente
+### Mais um exemplo de aggregate, dessa vez, vamos filtrar as cidades com população maior ou igual a  30.000 e mostrar em ordem decrescente
 
 ```js
 db.estados.aggregate([
@@ -392,7 +392,7 @@ db.estados.aggregate([
 
 
 # UPDATE 
-## COLECTION DE EXEMPLO
+## COLLECTION DE EXEMPLO
 ```js
 db.estados.insertMany([
 {
@@ -497,7 +497,7 @@ WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 
 # REMOVE
 
-## COLECTION DE EXEMPLO
+## COLLECTION DE EXEMPLO
 ```js
 db.estados.insertMany([
 {
@@ -576,7 +576,7 @@ WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 
 
 ### Removendo um campo da collection
-````js
+```js
 db.estados.update({sigla: "MG"}, { 
   $unset : { //removendo campo
     cidades : ""
@@ -592,6 +592,84 @@ WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 
 { "nome" : "Minas Gerais", "sigla" : "MG", "regiao" : "Sudeste" }
 */
+```
+
+
+
+
+
+# LOOKUP
+#### Lookup é usado para relacionamentos entre tabelas
+## COLLECTION DE EXEMPLO
+#### Neste collection foi criado os mesmo estados com componentes do anterior e foi criado também uma collection de empresas<br>em que as empresas contém o id de um dos estados, ao executar todo o comando certifique-se de executar aos poucos para que pegue o id correto
+```js
+
+db.estados.insertMany([
+{
+nome:"Minas Gerais", 
+sigla:"MG",
+regiao: "Sudeste",
+cidades:[ 
+    { _id : ObjectId(), cidade: "Belo Horizonte", populacao: 100000, capital: "capital" },
+    { _id : ObjectId(), cidade: "Ouro Preto", populacao: 5000 },
+    { _id : ObjectId(), cidade: "Ibirité", populacao: 10000 },
+    { _id : ObjectId(), cidade: "Contagem", populacao: 30000 },
+    {_id  : ObjectId(),  cidade : "Montes Claros",  populacao: 5000}
+    ]},
+{
+nome:"São Paulo", 
+sigla:"SP",
+cidades:[ { _id : ObjectId(),cidade: "São Paulo", populacao: 80000, capital: "capital"},
+    { _id : ObjectId(), cidade: "Santo André", populacao: 30000},
+    { _id : ObjectId(), cidade: "São Roque", populacao: 20000},
+    { _id : ObjectId(), cidade: "Ribeirão Preto", populacao: 3000}
+    ]
+},
+{
+nome:"Amazonas", 
+sigla:"AM",
+cidades:[{ _id : ObjectId(), cidade: "Manaus", populacao: 50000, capital: "capital" },
+    { _id : ObjectId(), cidade: "Borba", populacao: 10000  },
+    { _id : ObjectId(), cidade: "Amaturá", populacao: 5000 },
+    { _id : ObjectId(), cidade: "Barreirinha", populacao: 6000 }
+    ]
+},
+{
+nome:"Bahia", 
+sigla:"BA",
+cidades:[{ _id : ObjectId(), cidade: "Salvador", populacao: 110000, capital: "capital" },
+    { _id : ObjectId(), cidade: "Barreiras", populacao: 30000  },
+    { _id : ObjectId(), cidade: "Porto Seguro", populacao: 20000 },
+    { _id : ObjectId(), cidade: "Irecê", populacao: 2000 }
+    ]
+}
+]);
+
+//verificando ids
+db.estados.find({},{_id:1, sigla:1});
+
+
+
+
+
+
+
+db.empresas.insertMany([{
+  _id : ObjectId(), 
+  nome : "Vivo",
+  capital: 2000000,
+  idEstadoSede: ObjectId() //Insira dentro o id de MG
+},
+
+{
+  _id : ObjectId(), 
+  nome : "Claro",
+  capital: 100000,
+  idEstadoSede: ObjectId() //Insira dentro o id de AM
+},
+
+])
+
 ```
 
 /*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
