@@ -574,6 +574,26 @@ WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 */
 ```
 
+
+### Removendo um campo da collection
+````js
+db.estados.update({sigla: "MG"}, { 
+  $unset : { //removendo campo
+    cidades : ""
+    
+  }})
+
+//mostrando modificações
+db.estados.find({sigla:"MG"},{_id:0});
+
+/*
+SAIDA
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+{ "nome" : "Minas Gerais", "sigla" : "MG", "regiao" : "Sudeste" }
+*/
+```
+
 /*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
 
 
