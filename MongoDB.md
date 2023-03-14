@@ -492,6 +492,87 @@ WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 { "cidades" : { "cidade" : "Montes Claros", "populacao" : 5000 } }
 
 */
+```
+
+
+# REMOVE
+
+## COLECTION DE EXEMPLO
+```js
+db.estados.insertMany([
+{
+nome:"Minas Gerais", 
+sigla:"MG",
+regiao: "Sudeste",
+cidades:[ 
+    { _id : ObjectId(), cidade: "Belo Horizonte", populacao: 100000, capital: "capital" },
+    { _id : ObjectId(), cidade: "Ouro Preto", populacao: 5000 },
+    { _id : ObjectId(), cidade: "Ibirité", populacao: 10000 },
+    { _id : ObjectId(), cidade: "Contagem", populacao: 30000 },
+    {_id  : ObjectId(),  cidade : "Montes Claros",  populacao: 5000}
+    ]},
+{
+nome:"São Paulo", 
+sigla:"SP",
+cidades:[ { _id : ObjectId(),cidade: "São Paulo", populacao: 80000, capital: "capital"},
+    { _id : ObjectId(), cidade: "Santo André", populacao: 30000},
+    { _id : ObjectId(), cidade: "São Roque", populacao: 20000},
+    { _id : ObjectId(), cidade: "Ribeirão Preto", populacao: 3000}
+    ]
+},
+{
+nome:"Amazonas", 
+sigla:"AM",
+cidades:[{ _id : ObjectId(), cidade: "Manaus", populacao: 50000, capital: "capital" },
+    { _id : ObjectId(), cidade: "Borba", populacao: 10000  },
+    { _id : ObjectId(), cidade: "Amaturá", populacao: 5000 },
+    { _id : ObjectId(), cidade: "Barreirinha", populacao: 6000 }
+    ]
+},
+{
+nome:"Bahia", 
+sigla:"BA",
+cidades:[{ _id : ObjectId(), cidade: "Salvador", populacao: 110000, capital: "capital" },
+    { _id : ObjectId(), cidade: "Barreiras", populacao: 30000  },
+    { _id : ObjectId(), cidade: "Porto Seguro", populacao: 20000 },
+    { _id : ObjectId(), cidade: "Irecê", populacao: 2000 }
+    ]
+}
+]);
+```
+
+### Removendo um documento do collection
+```js
+//Removendo estados com a sigla "AM"
+db.estados.remove({sigla: "AM"})
+
+//mostrando estados
+db.estados.find({},{_id:0, nome: 1});
+
+/*
+SAIDA
+WriteResult({ "nRemoved" : 1 })
+{ "nome" : "Minas Gerais" }
+{ "nome" : "São Paulo" }
+{ "nome" : "Bahia" }
+*/
+```
+
+
+### Removendo um subdocumento de uma collection
+```js
+//para remover use o operador "pull" dentro do update
+db.estados.update({sigla: "MG"}, {$pull : {cidades : {cidade : "Montes Claros"}}})
+
+//mostrando cidades
+db.estados.find({sigla:"MG"},{_id:0, "cidades.cidade": 1});
+
+/*
+SAIDA
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+{ "cidades" : [ { "cidade" : "Belo Horizonte" }, { "cidade" : "Ouro Preto" }, { "cidade" : "Ibirité" }, { "cidade" : "Contagem" } ] }
+*/
+```
 
 /*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
 
