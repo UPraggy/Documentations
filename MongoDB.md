@@ -672,6 +672,30 @@ db.empresas.insertMany([{
 
 ```
 
+
+
+#### Utilizando Lookup para buscar o estado sede da vivo
+
+```js
+db.empresas.aggregate([
+  {$match : {nome : "Vivo"}}, // filtrando a empresa
+  {
+    $lookup : { // filtrando por relacionamento
+      from : "estados", // de qual collection
+      localField: "idEstadoSede", // relacionado a que campo neste collection
+      foreignField : "_id", // qual campo da collection externa deve comparar
+      as : "estadoSede" // nome do objeto a ser apresentado
+    }
+  },
+  {$project : {_id:0, "estadoSede.cidades":0, idEstadoSede: 0, "estadoSede._id":0}}
+  ])
+
+/*
+SAIDA
+{ "nome" : "Vivo", "capital" : 2000000, "estadoSede" : [ { "nome" : "Minas Gerais", "sigla" : "MG", "regiao" : "Sudeste" } ] }
+*/
+```
+
 /*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
 
 
