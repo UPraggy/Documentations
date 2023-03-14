@@ -388,6 +388,72 @@ db.estados.aggregate([
 ```
 
 
+
+
+
+# UPDATE 
+## COLECTION DE EXEMPLO
+```js
+db.estados.insertMany([
+{
+nome:"Minas Gerais", 
+sigla:"MG",
+cidades:[ 
+    { _id : ObjectId(), cidade: "Belo Horizonte", populacao: 100000, capital: "capital" },
+    { _id : ObjectId(), cidade: "Ouro Preto", populacao: 5000 },
+    { _id : ObjectId(), cidade: "Ibirité", populacao: 10000 },
+    { _id : ObjectId(), cidade: "Contagem", populacao: 30000 }
+    ]},
+{
+nome:"São Paulo", 
+sigla:"SP",
+cidades:[ { _id : ObjectId(),cidade: "São Paulo", populacao: 80000, capital: "capital"},
+    { _id : ObjectId(), cidade: "Santo André", populacao: 30000},
+    { _id : ObjectId(), cidade: "São Roque", populacao: 20000},
+    { _id : ObjectId(), cidade: "Ribeirão Preto", populacao: 3000}
+    ]
+},
+{
+nome:"Amazonas", 
+sigla:"AM",
+cidades:[{ _id : ObjectId(), cidade: "Manaus", populacao: 50000, capital: "capital" },
+    { _id : ObjectId(), cidade: "Borba", populacao: 10000  },
+    { _id : ObjectId(), cidade: "Amaturá", populacao: 5000 },
+    { _id : ObjectId(), cidade: "Barreirinha", populacao: 6000 }
+    ]
+},
+{
+nome:"Bahia", 
+sigla:"BA",
+cidades:[{ _id : ObjectId(), cidade: "Salvador", populacao: 110000, capital: "capital" },
+    { _id : ObjectId(), cidade: "Barreiras", populacao: 30000  },
+    { _id : ObjectId(), cidade: "Porto Seguro", populacao: 20000 },
+    { _id : ObjectId(), cidade: "Irecê", populacao: 2000 }
+    ]
+}
+]);
+```
+
+
+### Adicionando novo campo 
+```js
+//update, (FILTRO, ATUALIZACAO)
+db.estados.update({sigla: "MG"}, {$set : {regiao: "Sudeste"}})
+
+db.estados.aggregate([ // filtrando para visualizar atualização
+  {$match : {sigla: "MG"}},
+  {$project: { _id: 0, cidades: 0}}
+  ])
+  
+ //SAIDA
+ /*
+ de acordo com o filtro foi achado apenas um objeto e ele foi atualizado
+ WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 }) 
+{ "nome" : "Minas Gerais", "sigla" : "MG", "regiao" : "Sudeste" }
+*/
+```
+
+
 /*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
 
 
