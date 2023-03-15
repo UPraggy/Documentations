@@ -553,8 +553,8 @@ também é possível criar um nome. Ex.:
 import MinhaImagem from 'meucaminhorealtivo'
 
 <Image source={MinhaImagem} ></Image>
-Use 'src' para imagens por url
-src={'http://www.minhaurl.com.br/image.jpg'}
+Use 'source={{uri:}}' para imagens por url
+source={{uri:'http://www.minhaurl.com.br/image.jpg'}}
 */
 
 /*--------------------------FirstComponent.jsx-------------------*/
@@ -575,6 +575,7 @@ export default props=> {
 			<Image  
 			style={{width:'50%', resizeMode: 'contain', alignSelf:'center'}}
 			source={require('./statics/perrito.jpg')} ></Image>
+				
 		</View>
 		);
 }
