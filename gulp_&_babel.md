@@ -113,14 +113,88 @@ Minha tarefa 4
 
 
 
+# PRIMEIRO PROJETO GULP COM JS
+Neste modulo, é possível utilizar outro projeto e arquivos javascript, lembre-se de separar seus codigos em uma pasta e o gulp em outra, caso queira utilizar o do exemplo, use o seguinte
+
+### Arquivo .js dentro da pasta src (onde são organizados os codigos)
+```js
+class Animal{
+    constructor(tipo = 'sem tipo',vivo = 'Morto'){
+        this.vivo = vivo;
+        this.tipo = tipo;
+    }
+
+    status(){
+        return ` encontra-se ${this.vivo}`;
+    }
+}
+
+class Mamifero extends Animal{ //a palavra 'extends' serve como '__proto__' em objeto, definindo a classe pai
+    constructor(nome = 'Sem Nome',patas = 0,tipo,vivo){
+        super(vivo,tipo); //em classe uma forma de inicializar/chamar o contrutor da classe, é usando a palavra chave 'super'
+        this.nome = nome;
+        this.patas = patas;
+        
+    }
+
+    status(){
+        return `O ${this.nome} tipo ${this.tipo} ${super.status()}`;
+    }
+}
 
 
+class Cachorro extends Mamifero{ 
+    constructor(especie = 'cachorro',cor = 'marrom', nome,patas,tipo,vivo){
+        super(nome,patas,tipo,vivo); 
+        this.especie = especie;
+        this.cor = cor;
+        
+    }
+
+    status(){
+        return `O ${this.especie} cor ${this.cor} ${super.status()}`;
+    }
+}
+
+const cachorro = new Cachorro()
+console.log(cachorro)
+```
+
+### Com seus projetos e arquivos em mãos, criei seu arquivo gulpfile.js e comece a programar:
+
+```js
+const gulp = require('gulp');
+const {series, parallel} = gulp;
+
+const concat = require('gulp-concat'); //unir codigos de arquivos
+const uglify = require('gulp-uglify'); // compacta o codigo
+const babel = require('gulp-babel'); // torna o mais compativel possivel
 
 
+function task1(cb){
+	/*definindo arquivos a serem selecionados
+	colocando caminho relativo, o "*.js" refere a todos
+	os arquvios com extensão js dentro da referida pasta */
+	gulp.src("./*.js")
+		.pipe(babel({
+			comments: false, //exlui comentarios
+			presets: ["env"] //pega o formato mais novo do js
+		}))
+		.pipe(uglify()) //minifica o codigo (deixa ele mais compacto possivel)
+		.pipe(concat("codigofinal.min.js")) //gera um arquivo final com todos os outros 
+		.pipe(gulp.dest("build")); //destino do arquivo
+	return cb();
+}
 
 
-### para visualizar mais formatado no terminal use:
-``
+module.exports.default = series(task1);
+```
+
+Ao final, será criada uma pasta chamada build, com o arquivo final com o codigo limpo, compactado e compativel
+### ARQUIVO FINAL
+```js
+"use strict";var _get=function t(e,o,r){null===e&&(e=Function.prototype); ...
+```
 /*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
 
 
