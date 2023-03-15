@@ -1016,13 +1016,8 @@ root.render(
 
 
 
- //                                                           REFERENCIAS
-
-
-/*
+#                                                          REFERENCIAS
 
 
 https://www.udemy.com/course/curso-web/
 
-
-*/
