@@ -696,6 +696,43 @@ SAIDA
 */
 ```
 
+### Para este exemplo atualizaremos a empresa Claro e colocaremos o idCidadeSede como de Manaus
+```js
+db.empresas.update({nome:"Claro"},{$set : {idCidadeSede: ObjectId(IDCIDADEMANAUS)}})
+```
+#### Utilizando lookup para localizar cidade sede
+```js
+db.empresas.aggregate([
+  {$match: {nome:"Claro"}},
+  //Primeiramente ele localiza o estado que contem a cidade com o id igual
+  // Nota.: para subdocumentos, essa é a unica forma de fazer
+  {$lookup:{ 
+    from: "estados",
+    localField : "idCidadeSede",
+    foreignField: "cidades._id",
+    as : "estado"
+  }},
+  {$unwind: "$estado"}, // destructuring do array de estados
+  {$unwind: "$estado.cidades"}, // destructuring do array de cidades
+  
+  //Nesta etapa o match não funciona para filtrar a cidade com mesmo id
+  //para isso será usado o operador compare adicionando um campo
+  //que identifica se os ids são iguais ou não
+  // retorna 0 para igual, 1 para maior e -1 para valores menores
+  {$addFields: {mesmaCidade : {$cmp : ["$estado.cidades._id","$idCidadeSede"]}
+                }
+  },
+  {$match : {mesmaCidade: 0}}, // agora basta filtrar
+  {$project : {_id:0, nome:1, capital:1,cidadeSede: "$estado.cidades.cidade"}},
+  
+  ])
+```
+
+
+
+
+
+
 /*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
 
 
