@@ -9,7 +9,7 @@
 - **[Multiplos Componentes](#multiplos-componentes)**
 - **[Usestate](#usestate)**
 - **[Classes Components](#classes-components)**
-- **[Contencao](#contencao)**
+- **[Contenção](#contenção)**
 - **[Herdando Components](#herdando-components)**
 - **[Useeffect](#useeffect)**
 - **[Variaveis Globais](#variaveis-globais)**
@@ -308,8 +308,7 @@ root.render(
 );
 ```
 
-### Nota: Essa forma diminui a chance de haver problema ao usar,
-funções e componentes com mesmo nome
+### Nota: Essa forma diminui a chance de haver problema ao usar, funções e componentes com mesmo nome
 
 
 
@@ -456,7 +455,7 @@ root.render(
 
 
 
-## --------------------------------- Mudando valor -----------------------------
+## Mudando valor 
 
 ### ----------------ClasseComp.jsx--------------
 ```js
@@ -586,7 +585,7 @@ root.render(
 
 
 
-# CONTENCAO 
+# CONTENÇÃO 
 
 
 
