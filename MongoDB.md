@@ -1,10 +1,17 @@
 # MongoDB
 
 ## INDICE 
-- **[Introdução](introducao)**
+- **[Introdução](#introducao)**
+- **[Comandos basicos](#comandos-basicos)**
+- **[Inserindo dados](#inserindo-dados)**
+- **[Consultando dados](#consultando-dados)**
+- **[Consultas agregadas](#consultas-agregadas)**
+- **[Update](#update)**
+- **[Remove](#remove)**
+- **[Lookup](#lookup)**
 
 
-
+ 
 # INTRODUCAO
 
 
@@ -100,15 +107,6 @@ attr3:[
 ]})
 
 ```
-
-
-
-
-
-
-
-
-
 
 
 
@@ -235,11 +233,6 @@ use 0 para ocultar e 1 para mostrar
 db.estados.find({nome:"Amazonas"},{"cidades.cidade": 1, "_id":0})
 //{ "cidades" : [ { "cidade" : "Manaus" }, { "cidade" : "Borba" } ] }
 ```
-
-
-
-
-
 
 
 
@@ -598,7 +591,7 @@ WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 
 
 
-# LOOKUP
+# LOOKUP 
 #### Lookup é usado para relacionamentos entre tabelas
 ## COLLECTION DE EXEMPLO
 #### Neste collection foi criado os mesmo estados com componentes do anterior e foi criado também uma collection de empresas<br>em que as empresas contém o id de um dos estados, ao executar todo o comando certifique-se de executar aos poucos para que pegue o id correto
