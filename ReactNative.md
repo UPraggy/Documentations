@@ -199,6 +199,7 @@ export default function My_App(){
 
 ```
 
+_________________________________________
 
 #### Ainda é possível utilizar como arquivo externo.<br>Neste Exemplo foi criada a pasta statics, para armazenar os estilos
 
