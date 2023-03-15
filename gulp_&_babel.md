@@ -1,4 +1,4 @@
-# Gulp
+# Gulp & Babel
 
 ## INDICE 
 - **[Introdução](#introducao)**
@@ -13,6 +13,7 @@
 
 ### O gulp é um ferramenta para automatizar o processo de organização e preparo do seu projeto, como cópia de arquivos, renomear, mover, entre outras funcionalidades, podendo realiza-las uma em sequencia da outra ou paralelamente.
 
+### Babel é um compilador que adapta seu codigo, para poder ser utilizado em varios navegadores, mesmo que utilize uma tecnologia muito nova, o babel adapta para pode utilizar em tantos browsers quanto possível.
 
 # SETUP INICIAL
 Inicie seu projeto no e coloque em seu package.json as seguintes dependencias e instale logo em seguida
