@@ -713,8 +713,58 @@ Obrigatoria: true
 
 
 # PASSAGEM POR REFERÊNCIA
+#### Como é possível verificar, o Java não contém o conceito de ponteiros assim como C++, e a passagem de valores para uma função é limitada ao escopo. <br>Ex.:
+```java
+public class Main{ 
+  
+  public static void main(String[] args){
+    int variavel = 0;
+    soma1(variavel);
+    System.out.println(variavel);
+    /*
+      SAIDA -> 0
+    */
+  }
+  
+  public soma1(int variavel){
+    variavel += 1;
+  }
+}
+```
+
+#### Porém há uma forma de contornar isso, que é através de arrays, ao declarar um array, é possível passar a variavel por referência dentro da função, ligando o mesmo espaço de memória.
 
 
+```java
+public class Main{ 
+  
+  public static void main(String[] args){
+    int variavel = 0;
+    int []variavel2 = {0};
+    soma1(variavel);
+
+    System.out.println(variavel);
+    /*
+      SAIDA -> 0
+    */
+    soma1(variavel2);
+    System.out.println(variavel2[0]);
+    /*
+      SAIDA -> 1
+    */
+  }
+  
+  public static void soma1(int variavel){
+      variavel += 1;
+    }
+
+  /*Mesmo criando a funções de mesmos nomes, 
+  elas tem assinaturas diferentes de acordo com seus parâmetros*/
+  public static void soma1(int[] variavel){
+        variavel[0] += 1;
+    }
+}
+```
 
 
 
