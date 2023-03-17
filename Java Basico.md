@@ -8,7 +8,7 @@
 - **[Arrays e Matrizes](#arrays-e-matrizes)**
 - **[Classes e Metodos](#classes-e-metodos)**
 - **[Classe Herança](#classe-heranca)**
-
+- **[Interface](#interface)**
 
 
 
@@ -123,7 +123,9 @@ public class helloWorld{
       }else{
         System.out.println("Numero maior a 50\n");
       }
-
+	
+      // É possível criar condições em uma unica linha, basta colocar 
+      //"condicao" ? "retorno se verdadeiro" : "retorno se falso"
       resultado = (num == 0 ? "num é par" : "num é impar");
       System.out.printf("Resultado: %s\n",resultado);
     
@@ -142,6 +144,12 @@ public class helloWorld{
 
 
       for(int cont = 0; cont < 4;cont++){
+     	 if (cont == 3){
+          /* Este comando, faz com que todo o codigo abaixo dentro do loop,
+          não seja executado, e volte a ser executado após essa contagem, ele funciona 
+          como o break porém ele não interrompe todo o loop, apenas prossegue para o proximo loop*/
+          continue; 
+        }
         System.out.printf("%d\n",cont);
       }
 
@@ -171,9 +179,9 @@ public class helloWorld{
   
   public static void main(String[] args){
 
-    int[] nums = new int[6];
+    int[] nums = new int[6];//instaciando uma nova variavel
 
-    int[] varios = {5,2,3,4};
+    int[] varios = {5,2,3,4};//recebendo uma cadeia de valores
     
     nums[1] = 1;
     nums[3] = 5;
@@ -186,7 +194,7 @@ public class helloWorld{
     nums[0] = 4;
     nums[2] = 3;
     nums[4] = 9;
-    for (int x:nums){
+    for (int x:nums){ //tipo variavel:array
       System.out.println("Novo valor: "+(x*2));
     }
   }
@@ -588,3 +596,18 @@ public class main{
   
 }
 ```
+
+
+# INTERFACE
+
+
+
+
+
+# REFERENCIAS
+[PLAYLIST JAVA CFB](https://www.youtube.com/watch?v=X8AnVQ-GqLU&list=PLx4x_zx8csUjFC5WWjoNUL7LOOD7LCKRW)
+
+
+
+
+
