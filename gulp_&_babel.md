@@ -210,5 +210,5 @@ Ao final, será criada uma pasta chamada build, com o arquivo final com o codigo
 /*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
 
 
-https://www.udemy.com/course/curso-web
+https://www.udemy.com/course/curso-web<br>
 https://gulpjs.com/
