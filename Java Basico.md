@@ -599,7 +599,133 @@ public class main{
 
 
 # INTERFACE
+/*                                      ########################################################### 
+                                        ###########################################################
+                                        ######################### INTERFACE #######################
+                                        ###########################################################
+                                        ###########################################################*/
 
+
+#### Interfaces nada mais são que um documento onde fornece "instruções"/"asinatura de metodos" de como será criada a classe, ao criar uma classe recebendo uma interface como herança essa classe é obrigada a criar os metodos da interface. Além disso, é possível importar multiplas interfaces em uma classe, ao mesmo tempo que uma classe não pode receber por herança, multiplas classes.<br><br>Com base nisso, utilizaremos algumas classes e metodos de exemplos anteriores.
+
+
+
+
+### Arquivo Disciplina
+```java
+package Interface;
+
+//Use public interface -> para definir uma interface
+public interface Disciplina { 
+  
+  /*Caso deseje definir alguma variavel, tenha certeza de
+  dar um valor inicial, isso exclui a necessidade de 
+  declarar variaveis na classe ao implementar a interface,
+  lembrando que as variaveis não podem ser modificadas*/
+  public String professor = "Sem Professor";
+  public String sala = "A definir";
+  public Boolean obrigatoria = true;
+  
+
+  //Definindo metodos de interface
+  public void setNome(String nome);
+  public void setProfessor(String professor);
+  public void setDuracao(int duracao);
+  public void setSala(String sala);
+  public void setObrigatoria(Boolean obrigatoria);
+  public String getAll();
+  
+}
+```
+
+
+
+
+
+
+
+### Arquivo Java
+```java
+package Interface;
+import Interface.Disciplina;
+
+public class Java implements Disciplina{ 
+  private String nome;
+  private String professor = Disciplina.professor; //recebendo valores definidos em disciplina
+  private int duracaoMeses;
+  private String sala = Disciplina.sala;
+  private Boolean obrigatoria = Disciplina.obrigatoria;
+  
+  Java(String nome, int duracao){ //constructor basico
+    this.nome = nome;
+    this.duracaoMeses = duracao;
+  }
+  Java(String nome,String professor, int duracao,String sala, Boolean obrigatoria){ //constructor completo
+  this.nome = nome;
+    this.professor = professor;
+    this.duracaoMeses = duracao;
+    this.sala = sala;
+    this.obrigatoria = obrigatoria;
+  }
+
+  public void setNome(String nome){
+    this.nome = nome;
+  }
+  public void setProfessor(String professor){
+    this.professor = professor;
+  }
+  public void setDuracao(int duracao){
+    this.duracaoMeses = duracao;
+  }
+  public void setSala(String sala){
+    this.sala = sala;
+  }
+  public void setObrigatoria(Boolean obrigatoria){
+    this.obrigatoria = obrigatoria;
+  }
+
+  public String getAll() {
+    return "DISCIPLINA \n---------\nNome: "+this.nome+
+        "\nProfessor: "+this.professor+
+        "\nDuracao: "+this.duracaoMeses+" meses"+
+        "\nSala: "+this.sala+
+        "\nObrigatoria: "+this.obrigatoria+
+        "\n---------\n\n";
+  }
+}
+```
+
+### Arquivo main
+```java
+package Interface;
+import Interface.Java;
+
+public class Main{ 
+  
+  public static void main(String[] args){
+
+    Java javaBasics = new Java("Java Basics I",5);
+
+
+    
+    System.out.println(javaBasics.getAll());
+  }
+
+}
+
+
+/*
+SAIDA
+DISCIPLINA 
+---------
+Nome: Java Basics I
+Professor: Sem Professor
+Duracao: 5 meses
+Sala: A definir
+Obrigatoria: true
+---------
+*/
+```
 
 
 
