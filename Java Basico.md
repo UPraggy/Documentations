@@ -689,14 +689,11 @@ package Interface;
 import Interface.Java;
 
 public class Main{ 
-  
-  public static void main(String[] args){
 
+  public static void main(String[] args){
     Java javaBasics = new Java("Java Basics I",5);
-    
     System.out.println(javaBasics.getAll());
   }
-
 }
 
 
