@@ -2,9 +2,9 @@
 
 ## INDICE 
 - **[Introdução](#introducao)**
-- **[Update](#update)**
-- **[Remove](#remove)**
-- **[Lookup](#lookup)**
+- **[Setup Inicial](#setup-inicial)**
+- **[Padrão de Projeto Gulp](#padrão-de-projeto-gulp)**
+- **[Nota](#nota)**
 
 
 
@@ -113,7 +113,7 @@ Minha tarefa 4
 
 
 
-# PRIMEIRO PROJETO GULP COM JS
+# PROJETO GULP COM JS
 Neste modulo, é possível utilizar outro projeto e arquivos javascript, lembre-se de separar seus codigos em uma pasta e o gulp em outra, caso queira utilizar o do exemplo, use o seguinte
 
 ### Arquivo .js dentro da pasta src (onde são organizados os codigos)
@@ -195,6 +195,18 @@ Ao final, será criada uma pasta chamada build, com o arquivo final com o codigo
 ```js
 "use strict";var _get=function t(e,o,r){null===e&&(e=Function.prototype); ...
 ```
+
+# NOTA
+#### Há diversas bibliotecas para o gulp, abaixo algumas importantes.
+
+### Gulp-htmlmin e Gulp-uglifycss
+#### Da mesma forma que tem como compactar o javascript em um arquivo e linha, o htmlmin e uglifycss, compactam o html e css respectivamente.
+
+### Gulp-Watch e Gulp-Webserver
+#### Este modulo (Gulp-Webserver) permite a criacao de um servidor de desenvolvimento e o Gulp-Watch permite monitorar os arquivos a cada mudança, ou seja, a cada mudança ele executara os procedimentos de minificar, mover arquivos, subir para o um repositorio, etc.
+
+
+
 /*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
 
 
