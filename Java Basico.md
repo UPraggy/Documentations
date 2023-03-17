@@ -599,16 +599,8 @@ public class main{
 
 
 # INTERFACE
-/*                                      ########################################################### 
-                                        ###########################################################
-                                        ######################### INTERFACE #######################
-                                        ###########################################################
-                                        ###########################################################*/
-
 
 #### Interfaces nada mais são que um documento onde fornece "instruções"/"asinatura de metodos" de como será criada a classe, ao criar uma classe recebendo uma interface como herança essa classe é obrigada a criar os metodos da interface. Além disso, é possível importar multiplas interfaces em uma classe, ao mesmo tempo que uma classe não pode receber por herança, multiplas classes.<br><br>Com base nisso, utilizaremos algumas classes e metodos de exemplos anteriores.
-
-
 
 
 ### Arquivo Disciplina
@@ -637,10 +629,6 @@ public interface Disciplina {
   
 }
 ```
-
-
-
-
 
 
 
@@ -705,8 +693,6 @@ public class Main{
   public static void main(String[] args){
 
     Java javaBasics = new Java("Java Basics I",5);
-
-
     
     System.out.println(javaBasics.getAll());
   }
