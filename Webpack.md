@@ -3,8 +3,9 @@
 ## INDICE 
 - **[Introdução](#introducao)**
 - **[Setup Inicial](#setup-inicial)**
-- **[Padrão de Projeto Gulp](#padrão-de-projeto-gulp)**
-- **[Nota](#nota)**
+- **[Primeiro Projeto](#primeiro-projeto)**
+- **[Importando Css](#importando-css)**
+- **[Ambiente Dev e Prod/ Otimizações](#configurando-ambiente-de-desenvolvimento-e-produção-e-otimizações)**
 
 
 
