@@ -130,20 +130,38 @@ const webpack = require("webpack");
 module.exports = { 
 	mode: "development", 
 	entry: "./src/principal.js",
-	
 }
 ```
 
 ### Para este exemplo crie um arquivo .css de exemplo
 
-
+# Pasta Dist
 #### ------------ Arquivo teste.css ------------
 ```css
 body{
 background-color : #BAD;
 }
 ```
+#### ------------ Arquivo index.html ------------
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DOCUMENTO TESTE</title>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+	
 
+
+<script src="principal.js"></script>
+</body>
+</html>
+```
+
+# Pasta src
 #### ------------ Arquivo principal.js ------------
 ```js
 import DOG from './dog' //importando classe
@@ -152,3 +170,5 @@ const cachorro = new DOG; //instanciando
 
 console.log(cachorro.falar()) //executando
 ```
+
+
