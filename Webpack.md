@@ -66,11 +66,28 @@ console.log(cachorro.falar()) //executando
 
 #### ------------ Arquivo webpack.config.js ------------
 ```js
-const webpack = require("webpack"); //importando
+/*configurando WebPack*/
 
-module.exports = { // setando modo e arquivo main
-	mode: "development", //caso set para production, o codigo resultando será minificado
-	entry: "./src/principal.js"
+const webpack = require("webpack"); //importando
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+module.exports = { 
+	mode: "development", 
+	entry: "./src/principal.js",
+	plugins :[
+		new MiniCssExtractPlugin({
+			filename: "estilo.css",//nome do arquivo
+		})
+		],
+	module: {
+		rules: [{
+			test: /\.css$/,//expressão regular para ler arquivos .css
+			use : [
+				    MiniCssExtractPlugin.loader,
+				    "css-loader",
+				    //"style-loader",
+				]
+		}]
+	}
 }
 ```
 
