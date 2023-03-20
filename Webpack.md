@@ -111,8 +111,9 @@ module.exports = {
 
 # IMPORTANDO CSS
 #### No webpack para que ele reconheça arquivos de extensão css, ele utiliza modulos e plugins que auxiliam nessa leitura ou parse. Abaixo as dependêcias utilizadas:
-#### mini-css-extract-plugin -> gerar um arquivo de estilo final<br>css-loader -> Em vez de gerar um arquivo .css, ele insere o css atraves de uma DOM, dentro do arquivo main.js<br>style-loader -> responsável por ler e interpretar urls e imports.
-```js
+#### mini-css-extract-plugin -> gerar um arquivo de estilo final<br>style-loader -> Em vez de gerar um arquivo .css, ele insere o css atraves de uma DOM, dentro do arquivo main.js<br>css-loader -> responsável por ler e interpretar urls e imports.
+
+```json
 "dependencies": {
     "webpack": "4.8.1",
     "mini-css-extract-plugin" : "0.4.0",
@@ -120,4 +121,25 @@ module.exports = {
     "style-loader" : "0.21.0",
     "webpack-cli": "2.1.3"
   }
+```
+
+#### ------------ Arquivo webpack.config.js ------------
+```js
+const webpack = require("webpack"); 
+
+module.exports = { 
+	mode: "development", 
+	entry: "./src/principal.js",
+	
+}
+```
+
+### Para este exemplo crie um arquivo .css de exemplo
+
+
+#### ------------ Arquivo teste.css ------------
+```css
+body{
+background-color : #BAD;
+}
 ```
