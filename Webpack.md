@@ -93,8 +93,21 @@ Au! Au!
 ```
 
 
+### Outras configurações opcionais
+#### É possível configurar o nome e para onde o arquivo gerado vai ir:
+#### ------------ Arquivo webpack.config.js ------------
+```js
+const webpack = require("webpack"); //importando
 
-
+module.exports = {
+	mode: "development", 
+	entry: "./src/principal.js",
+	output: {
+		filename: "arquivoGerado.js", //modifique o nome do seu arquivo de saida
+		path : __dirname + "/destino" //use __dirname, para setar o caminho da pasta atual, e adicione a pasta desejada
+	}
+}
+```
 
 
 
