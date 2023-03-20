@@ -284,3 +284,13 @@ module.exports = {
 }
 ```
 
+### Rodando em ambos os modos
+
+#### Para rodar como produção digite no terminal:
+```terminal
+npm run build
+```
+#### Para rodar como desenvolvimento digite no terminal:
+```terminal
+npm start
+```
