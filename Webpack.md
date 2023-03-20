@@ -229,7 +229,7 @@ console.log(cachorro.falar())
     "webpack": "4.8.1",
     "cross-env": "5.1.5",
     "optimize-css-assets-webpack-plugin" : "4.0.1",
-    "terser-webpack-plugin": "5.3.7",
+    "terser-webpack-plugin": "4.2.3",
     "mini-css-extract-plugin" : "0.4.0",
     "css-loader" : "0.28.11",
     "style-loader" : "0.21.0",
