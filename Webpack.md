@@ -25,7 +25,6 @@ Inicie seu projeto no e coloque em seu package.json as seguintes dependencias e 
 "dependencies": {
     "webpack": "4.8.1",
     "webpack-cli": "2.1.3",
-    "nodemon": "^2.0.21"
   }
 ```
 
@@ -110,7 +109,15 @@ module.exports = {
 ```
 
 
-
-
-
-
+# IMPORTANDO CSS
+#### No webpack para que ele reconheça arquivos de extensão css, ele utiliza modulos e plugins que auxiliam nessa leitura ou parse. Abaixo as dependêcias utilizadas:
+#### mini-css-extract-plugin -> gerar um arquivo de estilo final<br>css-loader -> Em vez de gerar um arquivo .css, ele insere o css atraves de uma DOM, dentro do arquivo main.js<br>style-loader -> responsável por ler e interpretar urls e imports.
+```js
+"dependencies": {
+    "webpack": "4.8.1",
+    "mini-css-extract-plugin" : "0.4.0",
+    "css-loader" : "0.28.11",
+    "style-loader" : "0.21.0",
+    "webpack-cli": "2.1.3"
+  }
+```
