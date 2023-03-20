@@ -297,3 +297,6 @@ npm run build
 ```terminal
 npm start
 ```
+
+
+# CARREGANDO IMAGENS
