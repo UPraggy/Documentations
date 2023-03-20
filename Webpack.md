@@ -47,7 +47,7 @@ possibilitamos o acesso externo da classe
 */
 export default class Cachorro{ 
 	falar(){
-		return "Au Au!"
+		return "Au! Au!"
 	}
 } 
 ```
@@ -82,7 +82,15 @@ module.exports = { // setando modo e arquivo main
 ```terminal
 npm start
 ```
-#### Feito isso, será gerado um arquivo dentro da pasta dist com nome "main.js", onde conterá todo o código, podendo ser interpretado pelo browser, caso queira
+#### Feito isso, será gerado um arquivo dentro da pasta dist com nome "main.js", onde conterá todo o código, podendo ser interpretado pelo browser, caso queira. Texte executar o arquivo main.js:
+
+```terminal
+npm start && node dist/main.js
+
+SAIDA
+
+Au! Au!
+```
 
 
 
