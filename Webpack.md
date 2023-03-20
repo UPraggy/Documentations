@@ -143,3 +143,12 @@ body{
 background-color : #BAD;
 }
 ```
+
+#### ------------ Arquivo principal.js ------------
+```js
+import DOG from './dog' //importando classe
+import "./teste.css"
+const cachorro = new DOG; //instanciando
+
+console.log(cachorro.falar()) //executando
+```
