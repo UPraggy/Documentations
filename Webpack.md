@@ -74,21 +74,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = { 
 	mode: "development", 
 	entry: "./src/principal.js",
-	plugins :[
-		new MiniCssExtractPlugin({
-			filename: "estilo.css",//nome do arquivo
-		})
-		],
-	module: {
-		rules: [{
-			test: /\.css$/,//expressão regular para ler arquivos .css
-			use : [
-				    MiniCssExtractPlugin.loader,
-				    "css-loader",
-				    //"style-loader",
-				]
-		}]
-	}
 }
 ```
 
@@ -142,6 +127,7 @@ module.exports = {
     "webpack-cli": "2.1.3"
   }
 ```
+
 
 ### ------------ Arquivo webpack.config.js ------------
 ```js
@@ -300,3 +286,65 @@ npm start
 
 
 # CARREGANDO IMAGENS
+#### Para este exemplo, dentro de assets crie uma pasta chamada imgs e coloque uma imagem de teste
+### ------------ Arquivo src/assets/teste.css ----------
+```css
+body{
+	background-color : #BADA55;
+	background-image: url(../imgs/imagem.png);
+}
+```
+### Adicione o file-loader no seu package.json
+#### O css-loader em webpack config reconhece o import e url dos arquivos, porém é necessario um modulo que interprete os arquivos, que no caso o file-loader consegue realizar tal tarefa
+```json
+"file-loader" : "1.1.11",
+```
+
+### ------------ Arquivo webpack.config.js ------------
+```js
+/*configurando WebPack*/
+const modeDev = process.env.NODE_ENV !== "production"; 
+const webpack = require("webpack"); 
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
+
+
+module.exports = { 
+	mode: modeDev ? "development" : "production" , 
+	entry: "./src/principal.js",
+	plugins :[
+		new MiniCssExtractPlugin({
+			filename: "estilo.css",
+		})
+		],
+	module: {
+		rules: [{
+			test: /\.css$/,
+			use : [
+				    MiniCssExtractPlugin.loader,
+				    "css-loader",
+				    //"style-loader",
+				]
+		},
+		{
+			test : /\.(png|svg|jpg|gif)$/, //filtrando extensões
+			use: ["file-loader"] //usando pacote
+		}]
+	},
+	optimization:{
+		minimizer: [
+			new TerserPlugin({
+    			parallel: true,
+    			terserOptions: {
+        		ecma: 6,
+    			},
+			}),
+
+			new OptimizeCssAssetsPlugin({}) 
+		]
+	}
+}
+```
+
