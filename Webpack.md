@@ -136,12 +136,7 @@ module.exports = {
 ### Para este exemplo crie um arquivo .css de exemplo
 
 # Pasta Dist
-#### ------------ Arquivo teste.css ------------
-```css
-body{
-background-color : #BAD;
-}
-```
+
 #### ------------ Arquivo index.html ------------
 ```html
 <!DOCTYPE html>
@@ -160,15 +155,22 @@ background-color : #BAD;
 </body>
 </html>
 ```
+# Pasta src/assets/css
+#### ------------ Arquivo teste.css ------------
+```css
+body{
+background-color : #BAD;
+}
+```
 
 # Pasta src
 #### ------------ Arquivo principal.js ------------
 ```js
-import DOG from './dog' //importando classe
-import "./teste.css"
-const cachorro = new DOG; //instanciando
+import DOG from './dog' 
+import "./assets/css/teste.css"
+const cachorro = new DOG;
 
-console.log(cachorro.falar()) //executando
+console.log(cachorro.falar()) 
 ```
 
 
