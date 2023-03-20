@@ -142,11 +142,29 @@ module.exports = {
 
 ### ------------ Arquivo webpack.config.js ------------
 ```js
-const webpack = require("webpack"); 
+/*configurando WebPack*/
+const webpack = require("webpack"); //importando
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = { 
 	mode: "development", 
 	entry: "./src/principal.js",
+	plugins :[
+		new MiniCssExtractPlugin({
+			filename: "estilo.css",//nome do arquivo
+
+		})
+		],
+	module: {
+		rules: [{
+			test: /\.css$/,//expressão regular para ler arquivos .css
+			use : [
+					MiniCssExtractPlugin.loader,
+				    "css-loader",
+				    //"style-loader",
+				]
+		}]
+	}
 }
 ```
 
@@ -193,12 +211,76 @@ console.log(cachorro.falar())
 
 
 # Configurando Ambiente de Desenvolvimento e Produção e Otimizações
+#### Neste modulo, será configurado o webpack de forma a minificar os arquivos caso set para o modo de produção, e apenas orgarnizar os demais caso seja desenvolvimento
 
-/*possiblita setar uma variavel de ambiente suportada 
-    em "todos" sistemas operacionais*/
-    "croos-env": "5.1.5",
-    /*Responsavel por minificar os arquivos css, já 
-    que o webpack ainda não contém um plugin para css*/
-    "optimise-css-assets-webpack-plugin" : "4.0.1",
-    /*Responsavel por minificar os arquivos*/
-    "uglify-webpack-plugin"
+
+
+
+#### Build serve para rodar em modo produção
+```json
+"scripts": {
+    "start" : "webpack",
+    "build" : "cross-env NODE_ENV=production webpack"
+  },
+"dependencies": {
+    "webpack": "4.8.1",
+    "cross-env": "5.1.5",
+    "optimize-css-assets-webpack-plugin" : "4.0.1",
+    "uglifyjs-webpack-plugin" : "1.2.5",
+    "mini-css-extract-plugin" : "0.4.0",
+    "css-loader" : "0.28.11",
+    "style-loader" : "0.21.0",
+    "webpack-cli": "2.1.3",
+    "nodemon": "^2.0.21"
+  }
+```
+#### "croos-env" -> possiblita setar uma variavel de ambiente suportada em "todos" sistemas operacionais
+#### "optimise-css-assets-webpack-plugin" -> Responsavel por minificar os arquivos css, já que o webpack ainda não contém um plugin para css
+#### "uglify-webpack-plugin" -> Responsavel por minificar os arquivo
+    /**/
+     : "4.0.1",
+    /*s*/
+    
+
+
+### ------------ Arquivo webpack.config.js ------------
+```js
+/*configurando WebPack*/
+const modeDev = process.env.NODE_ENV !== "production"; // verificando qual tipo de modo está rodando
+const webpack = require("webpack"); 
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+
+
+module.exports = { 
+	mode: modeDev ? "development" : "production" , //setando o modo
+	entry: "./src/principal.js",
+	plugins :[
+		new MiniCssExtractPlugin({
+			filename: "estilo.css",
+		})
+		],
+	module: {
+		rules: [{
+			test: /\.css$/,
+			use : [
+				    MiniCssExtractPlugin.loader,
+				    "css-loader",
+				    //"style-loader",
+				]
+		}]
+	},
+	optimization:{
+		minimizer: [
+			new UglifyJSPlugin({ // minificando js
+				cache: true, //executando o mais rapido possivel
+				parallel: true,
+			}),
+			new OptimizeCssAssetsPlugin({}) //minificando css
+		]
+	}
+}
+```
+
