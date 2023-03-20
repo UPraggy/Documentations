@@ -229,7 +229,7 @@ console.log(cachorro.falar())
     "webpack": "4.8.1",
     "cross-env": "5.1.5",
     "optimize-css-assets-webpack-plugin" : "4.0.1",
-    "uglifyjs-webpack-plugin" : "1.2.5",
+    "terser-webpack-plugin": "5.3.7",
     "mini-css-extract-plugin" : "0.4.0",
     "css-loader" : "0.28.11",
     "style-loader" : "0.21.0",
@@ -251,7 +251,7 @@ const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
 
 module.exports = { 
@@ -274,10 +274,13 @@ module.exports = {
 	},
 	optimization:{
 		minimizer: [
-			new UglifyJSPlugin({ // minificando js
-				cache: true, //executando o mais rapido possivel
-				parallel: true,
+			new TerserPlugin({// minificando js
+    			parallel: true,//executando o mais rapido possivel
+    			terserOptions: {
+        		ecma: 6,
+    			},
 			}),
+
 			new OptimizeCssAssetsPlugin({}) //minificando css
 		]
 	}
