@@ -18,32 +18,78 @@
 # SETUP INICIAL
 Inicie seu projeto no e coloque em seu package.json as seguintes dependencias e instale logo em seguida
 ```json
-"nodemon": "^2.0.20",
-"babel-core": "6.26.3",
-"babel-preset-env": "1.6.1",
-"gulp": "4.0.2",
-"gulp-babel": "7.0.1",
-"gulp-concat": "2.6.1",
-"gulp-sass": "5.0.0",
-"gulp-typescript": "4.0.2",
-"gulp-uglify": "3.0.0",
-"gulp-uglifycss": "1.0.9",
-"typescript": "2.8.3"
+"scripts": {
+    "start" : "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+"dependencies": {
+    "webpack": "4.8.1",
+    "webpack-cli": "2.1.3",
+    "nodemon": "^2.0.21"
+  }
 ```
 
-Após isso, instale o cli do gulp globalmente
-```cmd
-npm i -g gulp-cli
-```
-O cli é responsavel por executar os comando gulp
-
-Agora crie seu arquivo gulpfile.js e comece a aprender
+Após isso, instale as dependencias
 
 
-# PADRÃO DE PROJETO GULP
+# PRIMEIRO PROJETO
                                         
+#### Para este exemplo criaremos uma classe exemplo, e a executaremos usando webpack
 
+
+### Pasta src
+
+#### Criando e exportando classe exemplo
+#### ------------ Arquivo dog.js ------------
 ```js
-//instancie a biblioteca gulp
-const gulp = require('gulp');
-/*executa comandos e funções em serie
+/*utilizando export default,
+possibilitamos o acesso externo da classe
+*/
+export default class Cachorro{ 
+	falar(){
+		return "Au Au!"
+	}
+} 
+```
+
+#### ------------ Arquivo principal.js ------------
+```js
+import DOG from './dog' //importando classe
+
+const cachorro = new DOG; //instanciando
+
+console.log(cachorro.falar()) //executando
+```
+
+### Pasta Inicial
+
+#### configurando WebPack
+
+#### ------------ Arquivo webpack.config.js ------------
+```js
+const webpack = require("webpack"); //importando
+
+module.exports = { // setando modo e arquivo main
+	mode: "development", //caso set para production, o codigo resultando será minificado
+	entry: "./src/principal.js"
+}
+```
+
+
+### Executando WebPack
+#### Após criar os arquivos e configurar o webpack basta executa-lo,através do comando:
+
+```terminal
+npm start
+```
+#### Feito isso, será gerado um arquivo dentro da pasta dist com nome "main.js", onde conterá todo o código, podendo ser interpretado pelo browser, caso queira
+
+
+
+
+
+
+
+
+
+
