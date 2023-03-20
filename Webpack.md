@@ -140,7 +140,7 @@ module.exports = {
   }
 ```
 
-#### ------------ Arquivo webpack.config.js ------------
+### ------------ Arquivo webpack.config.js ------------
 ```js
 const webpack = require("webpack"); 
 
@@ -152,9 +152,9 @@ module.exports = {
 
 ### Para este exemplo crie um arquivo .css de exemplo
 
-# Pasta Dist
+## Pasta Dist
 
-#### ------------ Arquivo index.html ------------
+### ------------ Arquivo index.html ------------
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -172,16 +172,16 @@ module.exports = {
 </body>
 </html>
 ```
-# Pasta src/assets/css
-#### ------------ Arquivo teste.css ------------
+## Pasta src/assets/css
+### ------------ Arquivo teste.css ------------
 ```css
 body{
 background-color : #BAD;
 }
 ```
 
-# Pasta src
-#### ------------ Arquivo principal.js ------------
+## Pasta src
+### ------------ Arquivo principal.js ------------
 ```js
 import DOG from './dog' 
 import "./assets/css/teste.css"
@@ -191,3 +191,14 @@ console.log(cachorro.falar())
 ```
 
 
+
+# Configurando Ambiente de Desenvolvimento e Produção e Otimizações
+
+/*possiblita setar uma variavel de ambiente suportada 
+    em "todos" sistemas operacionais*/
+    "croos-env": "5.1.5",
+    /*Responsavel por minificar os arquivos css, já 
+    que o webpack ainda não contém um plugin para css*/
+    "optimise-css-assets-webpack-plugin" : "4.0.1",
+    /*Responsavel por minificar os arquivos*/
+    "uglify-webpack-plugin"
