@@ -16,7 +16,8 @@
 
 
 # SETUP INICIAL
-Inicie seu projeto no e coloque em seu package.json as seguintes dependencias e instale logo em seguida
+### ------------ Arquivo package.json ----------
+#### Inicie seu projeto no e coloque em seu package.json as seguintes dependencias e instale logo em seguida
 ```json
 "scripts": {
     "start" : "webpack",
@@ -111,6 +112,7 @@ Au! Au!
 
 ### Outras configurações opcionais
 #### É possível configurar o nome e para onde o arquivo gerado vai ir:
+
 #### ------------ Arquivo webpack.config.js ------------
 ```js
 const webpack = require("webpack"); //importando
@@ -130,6 +132,7 @@ module.exports = {
 #### No webpack para que ele reconheça arquivos de extensão css, ele utiliza modulos e plugins que auxiliam nessa leitura ou parse. Abaixo as dependêcias utilizadas:
 #### mini-css-extract-plugin -> gerar um arquivo de estilo final<br>style-loader -> Em vez de gerar um arquivo .css, ele insere o css atraves de uma DOM, dentro do arquivo main.js<br>css-loader -> responsável por ler e interpretar urls e imports.
 
+### ------------ Arquivo package.json ----------
 ```json
 "dependencies": {
     "webpack": "4.8.1",
@@ -215,7 +218,7 @@ console.log(cachorro.falar())
 
 
 
-
+### ------------ Arquivo package.json ----------
 #### Build serve para rodar em modo produção
 ```json
 "scripts": {
@@ -237,9 +240,6 @@ console.log(cachorro.falar())
 #### "croos-env" -> possiblita setar uma variavel de ambiente suportada em "todos" sistemas operacionais
 #### "optimise-css-assets-webpack-plugin" -> Responsavel por minificar os arquivos css, já que o webpack ainda não contém um plugin para css
 #### "uglify-webpack-plugin" -> Responsavel por minificar os arquivo
-    /**/
-     : "4.0.1",
-    /*s*/
     
 
 
