@@ -287,8 +287,63 @@ public class helloWorld{
 }
 ```
 
+
+
+
+
+
 # STRINGS
 #### Neste modulo será apresentado alguns metodos para Strings e funções da biblioteca java.lang
+
+```java
+package Testes;
+
+public class StringMetods {
+
+	public static void main(String[] args) {
+		String text = "\n   Esta e uma string de teste, sera utilizada para alguns testes de metodos   ";
+		//Pegar a letra em determinada posição
+		System.out.println("String em determinada posicão: "+text.charAt(3));
+		
+		//Tamanho da String
+		System.out.println("Tamanho da String: "+text.length());
+		
+		//Retirando espaços a esquerda e direita
+		System.out.println("Sem espaços: "+text.trim());
+		text = text.trim();
+		
+		//Maiusculo e Minusculo
+		System.out.println("Maiusculo: "+text.toUpperCase());
+		System.out.println("Minusculo: "+text.toLowerCase());
+		
+		
+		//Contem alguma letra, palavra ou trecho de frase
+		System.out.println("Contem \"string de teste\": "+text.contains("string de teste"));
+		System.out.println("Contem \"palavra\": "+text.contains("palavra"));
+		
+		
+		//Substituir letra, palavra ou trecho de frase por outra
+		//Nota.: no exemplo abaixo, pode-se verificar que ele substitui até alguns casos 
+		//que podem não ser desejados
+		System.out.println("Substitui: "+text.replace("teste","NOVO TESTE"));
+		//para corrigir isso
+		System.out.println("Correcao substitui: "+text.replace("teste,","NOVO TESTE"));
+		
+		
+		//Comparacao de Strings
+		System.out.println("E igual? "+text.equals("Uma outra String"));
+		
+		//Comparacao de Strings ignorando maiusculo ou minusculo
+		System.out.println("E igual? "+text.equalsIgnoreCase("Esta e uma STRING de TESTE, sera UtiLiZadA para alguns testes de metodos"));
+		
+		
+		//Dividindo String
+		System.out.substring("E igual? "+text.equalsIgnoreCase("Esta e uma STRING de TESTE, sera UtiLiZadA para alguns testes de metodos"));
+	}
+}
+
+```
+
 
 
 
