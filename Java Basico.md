@@ -22,7 +22,8 @@
 
 #### Java é uma linguagem amplamente usada, e semelhante ao c e c++ ela é fortemente tipada, caso tenha estudado os mecionados, será facilitada a compreensão da linguagem Java<br>**Nota: Jamais esqueça do ponto e vírgula =)**
 
-
+<br><br>
+<hr/>
 
 
 ## PRIMEIRO PROGRAMA
@@ -80,6 +81,10 @@ public class helloWorld{
 }
 
 ```
+
+<br><br>
+<hr/>
+
 
 # LEITURA DE DADOS 
 
@@ -165,7 +170,8 @@ public class helloWorld{
 }
 ```
 
-
+<br><br>
+<hr/>
 
 
 
@@ -289,7 +295,8 @@ public class helloWorld{
 
 
 
-
+<br><br>
+<hr/>
 
 
 # STRINGS
@@ -380,6 +387,8 @@ public class StringMetods {
 
 ### Ainda há diversos outros metodos, neste modulo foi colocado alguns dos mais usados
 
+<br><br>
+<hr/>
 
 # CLASSES E METODOS 
 
@@ -568,6 +577,9 @@ public class main{
 
 ```
 
+<br><br>
+<hr/>
+
 
 
 # CLASSE HERANCA 
@@ -692,6 +704,11 @@ public class main{
 ```
 
 
+<br><br>
+<hr/>
+
+
+
 # INTERFACE
 
 #### Interfaces nada mais são que um documento onde fornece "instruções"/"asinatura de metodos" de como será criada a classe, ao criar uma classe recebendo uma interface como herança essa classe é obrigada a criar os metodos da interface. Além disso, é possível importar multiplas interfaces em uma classe, ao mesmo tempo que uma classe não pode receber por herança, multiplas classes.<br><br>Com base nisso, utilizaremos algumas classes e metodos de exemplos anteriores.
@@ -805,6 +822,10 @@ Obrigatoria: true
 ```
 
 
+<br><br>
+<hr/>
+
+
 
 # PASSAGEM POR REFERÊNCIA
 #### Como é possível verificar, o Java não contém o conceito de ponteiros assim como C++, e a passagem de valores para uma função é limitada ao escopo. <br>Ex.:
@@ -866,7 +887,8 @@ public class Main{
 
 
 
-
+<br><br>
+<hr/>
 
 
 
