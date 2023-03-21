@@ -6,6 +6,7 @@
 - **[Leitura de Dados](#leitura-de-dados)**
 - **[Condições e Loops](#condições-e-loops)**
 - **[Arrays e Matrizes](#arrays-e-matrizes)**
+- **[Strings](#strings)**
 - **[Classes e Metodos](#classes-e-metodos)**
 - **[Classe Herança](#classe-heranca)**
 - **[Interface](#interface)**
@@ -285,6 +286,14 @@ public class helloWorld{
   }
 }
 ```
+
+# STRINGS
+#### Neste modulo será apresentado alguns metodos para Strings e funções da biblioteca java.lang
+
+
+
+
+
 
 
 # CLASSES E METODOS 
