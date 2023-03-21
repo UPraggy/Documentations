@@ -338,17 +338,47 @@ public class StringMetods {
 		
 		
 		//Dividindo String
-		System.out.substring("E igual? "+text.equalsIgnoreCase("Esta e uma STRING de TESTE, sera UtiLiZadA para alguns testes de metodos"));
+		System.out.println("Parte da string de 21 a 26: "+text.substring(21,26));
 	}
 }
-
 ```
 
+#### Além dos metodos normais de uma string, há também a classe STRING BUILDER
 
+```java
+package Testes;
 
+public class StringMetods {
 
+	public static void main(String[] args) {
+		StringBuilder text = new StringBuilder("string de teste");
+		
+		//Adicionando frase à string no final
+		text.append(" simples");
+		System.out.println(text);
+		
+		//Adicionando frase à string em posição especifica
+		text.insert(0,"Uma ");
+		System.out.println(text);
+				
+	
+		//revertendo String
+		text.reverse();
+		System.out.println(text);
+		text.reverse();
+		
+		//convertendo para tipo String
+		String text2 = text.toString();
+		
+		//Convertendo string em array
+		//Neste metodo, é necessario colocar o separador
+		//que vai servir para dividir a string e retorna um array
+		System.out.println(text2.split(" ")[0]);
+	}
+}
+```
 
-
+### Ainda há diversos outros metodos, neste modulo foi colocado alguns dos mais usados
 
 
 # CLASSES E METODOS 
