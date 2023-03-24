@@ -7,7 +7,7 @@
 - **[Utilizando Css](#utilizando-css)**
 - **[Passagens de Argumentos](#passagens-de-argumentos)**
 - **[Css Responsivo](#css-responsivo)**
-- **[Inserindo Imagens](#inserindo-imagen)**
+	- **[Inserindo Imagens](#inserindo-imagen)**
 - **[Image Background](#image-background)**
 - **[Functions](#functions)**
 - **[Button and Alert](#button-and-alert)**
@@ -349,7 +349,7 @@ width : 100%;
 /*Caso use um numero comum ele ocupará a
 quantidade de 'pixels do dispositivo'*/
 width : 100 ;
-```js
+```
 
 ### Flex
 #### Deixa todos os itens flexíveis terem o mesmo comprimento, independentemente de seu conteúdo:
