@@ -1,7 +1,6 @@
 # React
 
 ## INDICE 
-- **[Introdução](#introducao)**
 - **[Start](#start)**
 - **[Introdução](#introdução)**
 - **[Primeiro Componente](#primeiro-componente)**
@@ -564,7 +563,7 @@ export default class Animal extends Component {
 			)
 	}
 }
-```js
+```
 
 #### Importanto...
 
