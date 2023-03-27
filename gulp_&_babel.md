@@ -207,7 +207,7 @@ Ao final, será criada uma pasta chamada build, com o arquivo final com o codigo
 
 
 
-/*---------------------------------------------REFERÊNCIAS---------------------------------------------*/
+### REFERÊNCIAS
 
 
 https://www.udemy.com/course/curso-web<br>
