@@ -1378,7 +1378,7 @@ animais.forEach2(function(nome,indice){ //executando como prototipo
 3: vaca
 4: alce
 */
-```js
+```
 
 
 ### A função map serve para modificar os elementos do array
@@ -1399,13 +1399,13 @@ resultado = resultado.map(e => e+1).map(e => e/2)
 resultado
 //[-8, -7, -6, -5, -4]
 
-```js
+```
 
 
 
 ### Desafio Map
 
-
+```js
 const carrinho = [
     '{ "nome": "Borracha", "preco": 3.45 }',
     '{ "nome": "Caderno", "preco": 13.90 }',
@@ -1422,7 +1422,7 @@ let tmp = carrinho.map(function(e){
 tmp
 //[3.45, 13.9, 41.22, 7.5]
 
-
+```
 
 
 
