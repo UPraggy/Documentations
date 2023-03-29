@@ -10,20 +10,20 @@
 - **[Variaveis](#variaveis)**
 - **[Tipos de Dados](#tipos-de-dados)**
 - **[Impressão](#impressão)**
-- **[Array Básico](#array-básico)**
-- **[Objetos](#objetos-basico)**
-- **[Funções](#funções-basico)**
-- **[Classes](#classes-basico)**
-- **[Exceções - Try And Catch](#)**
-- **[For/in](#for/in)**
+- **[Array Básico](#array-basico)**
+- **[Objetos](#objetos)**
+- **[Funções](#funções)**
+- **[Classes](#classes)**
+- **[Exceções - Try And Catch](#exceções---try-and-catch)**
+- **[For/in](#forin)**
 
 ### JS APROFUNDANDO 
 
-- **[Funções](#funções)**
+- **[Funções](#aprofundando-funções)**
 - **[Json](#json)**
-- **[Objetos](#objetos)**
-- **[Classe](#classe)**
-- **[Array](#array)**
+- **[Objetos](#aprofundando-objetos)**
+- **[Classe](#aprofundando-classe)**
+- **[Array](#aprofundando-array)**
 
 
 
