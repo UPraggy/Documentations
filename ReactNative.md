@@ -639,9 +639,8 @@ export default function My_App(){
 
 ## Ativando Funcao
 
-```js
-Como no react é possível usar o useState
-```
+#### Assim como no react é possível usar o useState
+
 
 ### --------------------------FirstComponent.jsx-------------------
 ```js
