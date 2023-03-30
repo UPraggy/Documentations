@@ -6,8 +6,8 @@
 - **[Introdução](#introdução)**
 - **[Utilizando Css](#utilizando-css)**
 - **[Passagens de Argumentos](#passagens-de-argumentos)**
-- **[Css Responsivo](#css-responsivo)**
-	- **[Inserindo Imagens](#inserindo-imagen)**
+- **[Css Responsivo](#css---responsivo)**
+- **[Inserindo Imagens](#inserindo-imagens)**
 - **[Image Background](#image-background)**
 - **[Functions](#functions)**
 - **[Button and Alert](#button-and-alert)**
