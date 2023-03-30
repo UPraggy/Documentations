@@ -10,6 +10,7 @@
 - **[Classes e Metodos](#classes-e-metodos)**
 - **[Classe Herança](#classe-heranca)**
 - **[Interface](#interface)**
+- **[Polimorfismo - Override and Overload](#polimorfismo---override-and-overload)**
 - **[Passagem por referência](#passagem-por-referência)**
 
 
@@ -821,6 +822,88 @@ Obrigatoria: true
 */
 ```
 
+
+<br><br>
+<hr/>
+
+
+# POLIMORFISMO - OVERRIDE AND OVERLOAD
+#### Os conceitos de overload e override se dão pela diferenciação de parametros e nome de metodos das classes, Exemplo:
+#### Caso uma classe herdando a outra, queira ter uma metodos de mesmo nome mas com funções diferentes substituindo a função da superclasse, basta usar o metodo OVERRIDE para sobreescrever a função, logo ao chamar a função, o metodo que será considerado, será da subclasse
+#### Caso uma classe deseja ter metodos com mesmos nomes, mas com funções diferentes, basta que elas tenham paramêtros diferentes, seja pela quantidade ou tipo dos mesmos, assim o java priorizará a função com aquela "assinatura" especifica
+
+### Arquivo Forma2D
+```java
+
+public class Forma2D {
+    protected float x;
+    protected float y;
+    
+    public float calculaArea() {
+        return this.x*this.y;
+    }
+}
+```
+
+
+### Arquivo Triangulo
+
+```java
+
+public class Triangulo extends Forma2D{
+
+    @Override //Substituindo função da superclasse
+    public float calculaArea() { //reescrevendo um metodo com mesmo nome, mas função diferente da superclasse
+        return (x*y)/2;
+    }
+    
+    public String mudaLados(int multiplicador) { //criando função com um parametro
+        this.x *= multiplicador;
+        this.y *= multiplicador;
+        return "Lados Alterados: "+this.x+","+this.y;
+    }
+    
+
+    //criando função com mesmo nome mas com um parametros diferentes
+    public String mudaLados(float x, float y) {
+        this.x = x;
+        this.y = y;
+        return "Lados Alterados: "+this.x+","+this.y;
+    }
+}
+```
+
+### Arquivo TesteArea
+
+```java
+
+public class TesteArea {
+
+    public static void main(String[] args) {
+        Triangulo triangulo = new Triangulo();
+        
+        
+        triangulo.x = 5;
+        triangulo.y = 5;
+        
+        
+        System.out.println("Area: "+triangulo.calculaArea());
+        System.out.println(triangulo.mudaLados(2));
+        System.out.println(triangulo.mudaLados(8,6));
+        
+
+        /*SAIDA
+        
+        Area: 12.5
+        Lados Alterados: 10.0,10.0
+        Lados Alterados: 8.0,6.0
+        */
+        
+
+    }
+
+}
+```
 
 <br><br>
 <hr/>
