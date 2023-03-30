@@ -344,7 +344,7 @@ export default function My_App(){
 
 
 ```css
-//Caso use 100% por exemplo, ele ocupa todo o espaço disponivel
+/*Caso use 100% por exemplo, ele ocupa todo o espaço disponivel*/
 width : 100%; 
 /*Caso use um numero comum ele ocupará a
 quantidade de 'pixels do dispositivo'*/
