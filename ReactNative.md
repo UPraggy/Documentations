@@ -57,7 +57,7 @@ export default function My_App(){
 ______________________________
 
 ```js
-Assim como React é possível utilizar classes para renderizar*/
+/*Assim como React é possível utilizar classes para renderizar*/
 
 import React, {Component} from 'react'
 import {
