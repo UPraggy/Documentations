@@ -831,7 +831,7 @@ Obrigatoria: true
 
 # POLIMORFISMO - OVERRIDE AND OVERLOAD
 #### Os conceitos de overload e override se dão pela diferenciação de parametros e nome de metodos das classes, Exemplo:
-#### Caso uma classe herdando a outra, queira ter uma metodos de mesmo nome mas com funções diferentes substituindo a função da superclasse, basta usar o metodo OVERRIDE para sobreescrever a função, logo ao chamar a função, o metodo que será considerado, será da subclasse
+#### Caso uma classe herdando a outra, queira ter metodos de mesmo nome mas com funções diferentes substituindo a função da superclasse, basta usar o metodo OVERRIDE para sobreescrever a função, logo ao chamar a função, o metodo que será considerado, será da subclasse
 #### Caso uma classe deseja ter metodos com mesmos nomes, mas com funções diferentes, basta que elas tenham paramêtros diferentes, seja pela quantidade ou tipo dos mesmos, assim o java priorizará a função com aquela "assinatura" especifica
 
 ### Arquivo Forma2D
