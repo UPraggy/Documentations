@@ -964,16 +964,116 @@ public class Main{
 }
 ```
 
-
-
-
-
-
-
 <br><br>
 <hr/>
 
 
+# ARRAYLIST
+#### ArrayList é uma classe/objeto que funciona como um array, porém com métodos avançados tornando mais facil e pratico, uma das vantagens é criar um array dinamico, onde o tamanho pode variar facilmente, abaixo a criação e metodos:
+
+## Criando arrays e apresentando metodos
+
+
+```java
+
+    import java.util.ArrayList; //importando arrayList
+public class ArrayListExample {
+    public class Main(){
+        public static void main(){
+
+            ArrayList<String> animais = new ArrayList<>();
+
+            /* Caso queira criar com posições use
+            ArrayList<String> animais = new ArrayList<>(100);
+            */
+
+            //Adicionando valores
+            animais.add("galo");
+            animais.add("cavalo");
+            animais.add("gato");
+            animais.add("cachorro");
+            animais.add("peixe");
+
+            /*Acessando elemento especifico
+            dentro do get coloque o indice desejado
+            */
+            System.out.println(animais.get(0));
+
+
+            /*dentro da função coloque o objeto desejado
+            e como retorno é recebido o indice*/
+            System.out.println(animais.indexOf("cachorro"));
+
+
+            /*dentro da função coloque o objeto ou indice
+            desejado e ele será apagado*/
+            System.out.println(animais.remove("cavalo"));
+            System.out.println(animais.get(1));//gato agora é indice 1
+
+
+            //Tamanho do array
+            System.out.println(animais.size());
+
+
+            //Limpando posições inutilizadas do array
+            animais.trimToSize();
+            //Limpando array
+            animais.clear();
+
+          /*ERRO pois não há mais elementos
+            System.out.println(animais.get(0));*/
+        }
+    }
+```
+
+
+
+
+# TryAndCatch
+#### Assim como em praticamente todas as linguagens de programação, Java contém tratamento de erros. Ao dar erro em um programa esse tratamento possibilita que o programa não seja interrompido e continue executando de forma normal, neste modulo será apresentada todas as formas de tratamento:
+
+Try -> tente fazer X
+Catch -> Se X der erro, execute meu codigo
+Finally -> Não importa X, execute meu codigo
+Trow -> Lance essa exceção na tela
+
+## Criando arrays e apresentando metodos
+
+
+```java
+
+    import java.util.ArrayList; //importando arrayList
+    public class TryCatch(){
+        public static void main(){
+
+            ArrayList<String> animais = new ArrayList<>();
+
+            animais.add("galo");
+            animais.add("cavalo");
+            animais.add("gato");
+
+
+            try{
+                System.out.println(animais.get(5));
+            }catch(Exception e){
+                System.out.println("ERRO DE INDICE");
+                //Mostrando erro
+                System.out.println(e.getMessage());
+            }finally{
+                System.out.println("FIM");
+            }
+            
+
+            /*use trow.SUAEXCECAO e dentro a mensagem do erro para lança-lo
+            para o Trow é comum usa-lo com alguma condição, normalmente
+            um if onde ele iclui a exceção desejada*/
+            throw new IllegalArgumentException("ERRO DE ARGUMENTO");
+        }
+    }
+```
+
+<br><br>
+<hr />
 
 # REFERENCIAS
 [PLAYLIST JAVA CFB](https://www.youtube.com/watch?v=X8AnVQ-GqLU&list=PLx4x_zx8csUjFC5WWjoNUL7LOOD7LCKRW)
