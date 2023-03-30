@@ -1034,10 +1034,10 @@ public class ArrayListExample {
 # TryAndCatch
 #### Assim como em praticamente todas as linguagens de programação, Java contém tratamento de erros. Ao dar erro em um programa esse tratamento possibilita que o programa não seja interrompido e continue executando de forma normal, neste modulo será apresentada todas as formas de tratamento:
 
-Try -> tente fazer X
-Catch -> Se X der erro, execute meu codigo
-Finally -> Não importa X, execute meu codigo
-Trow -> Lance essa exceção na tela
+#### Try -> tente fazer X<br>
+#### Catch -> Se X der erro, execute meu codigo<br>
+#### Finally -> Não importa X, execute meu codigo<br>
+#### Trow -> Lance essa exceção na tela<br>
 
 ## Criando arrays e apresentando metodos
 
