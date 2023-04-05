@@ -1077,6 +1077,66 @@ public class ArrayListExample {
 <br><br>
 <hr />
 
+
+# OPERAÇÕES COM ARQUIVOS
+#### Neste modulo será apresentada algumas operações com arquivos. utilizando um projeto desenvolvido:
+
+```java
+package GeraFolhaPck;
+import java.nio.file.*; //Biblioteca de arquivos
+import java.util.List; //Biblioteca para listas
+import java.io.IOException; //Controle de exceção para operações criticas de arquivo
+import java.nio.charset.StandardCharsets; //formatação de arquivo em ptBr
+
+public class GetArquivo {
+	
+	public static void main(String[] args) throws IOException {
+		
+	//PEGANDO CAMINHO RELATIVO ONDE O CODIGO ESTA EXECUTANDO
+	String dirAtual = System.getProperty("user.dir");
+	
+	//VOLTANDO UM DIRETORIO PARA PEGAR ARQUIVO
+	String[] dirAtualArr = dirAtual.split("\\\\"); //dividindo string pelas barras
+	String locArquivo = "FolhaAnalitica.txt";
+	
+	dirAtual = "";
+	for (int x=0; x<dirAtualArr.length-1; x++) {
+		dirAtual += dirAtualArr[x]+"/"; //unindo lista sem o ultimo diretorio
+	}
+
+
+	//Criando Atributo Path para arquivos
+	Path folhaAnaliticaArq = Paths.get(dirAtual);
+	
+	//Verificando se diretorio existe
+	System.out.println("Diretorio existe.: "+Files.isDirectory(folhaAnaliticaArq));
+	
+	folhaAnaliticaArq = Paths.get(dirAtual+locArquivo);
+	
+	//Verificando se arquivo existe
+	System.out.println("Arquivo existe.: "+Files.exists(folhaAnaliticaArq));
+	
+	
+	//Criando variavel para armazenar conteudo do arquivo
+	List<String> textFile = Files.readAllLines(folhaAnaliticaArq, StandardCharsets.UTF_8);
+
+	
+	//imprimindo linhas do arquivo
+	for (String line:textFile) {
+		System.out.println(line);
+	}
+
+	}
+}
+```
+
+
+
+
+
+
+
+
 # REFERENCIAS
 [PLAYLIST JAVA CFB](https://www.youtube.com/watch?v=X8AnVQ-GqLU&list=PLx4x_zx8csUjFC5WWjoNUL7LOOD7LCKRW)
 
