@@ -14,7 +14,7 @@
 - **[Passagem por referência](#passagem-por-referência)**
 - **[ArrayList](#arraylist)**
 - **[Try And Catch](#tryandcatch)**
-
+- **[Operações com Arquivos](#operações-com-arquivos)**
 
 
 
