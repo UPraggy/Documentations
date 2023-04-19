@@ -1,33 +1,30 @@
-/*
-INDICE 
+# Java
 
-- RECUSÃO EXEMPLO
-- PILHA
-- FILA
-- LISTA
-- STRUCT
-- PONTEIROS
-- Alocação dinamica
-- VECTOR
-- STRUCT AVANÇADO E BILBIOTECAS EXTERNAS
-- NEW E DELETE
-- CLASSE
-- VIRTUAL // em contrucao
-- TRATAMENTO DE ERRO (try e catch)
-- FOR RANGE
-- AUTO
-- FUNÇÕES LAMBDA
-- MAP
-- PONTEIRO INTELIGENTE
-*/
+## INDICE 
 
-/*Obs.: 
-
-Para buscar pesquise por '# nome'.
+- **[Introdução](#introdução)**
 
 
-Os programas contem comentarios sobre o assunto, ele pode ser executado para
-melhor entendimento, use 'cout' para ver as saidas e alterações.*/
+- **[Recursão Exemplo](#recursão-exemplo---fatorial)**
+- **[Pilha](#pilha)**
+- **[Fila](#fila)**
+- **[Lista](#lista)**
+- **[Struct](#struct)**
+- **[Ponteiros](#ponteiros)**
+- **[Alocação Dinâmica](#alocação-dinamica)**
+- **[Vector](#vector)**
+- **[Struct Avançado e Bilbiotecas Externas](#struct-avançado-e-bilbiotecas-externas)**
+- **[New e Delete](#new-e-delete)**
+- **[Classe](#classe)**
+- **[Virtual](#virtual)**
+- **[Virtual](#virtual)**
+- **[Herança de Classe](#herança-de-classe)**
+- **[Tratamento de Erro (try e Catch)](#tratamento-de-erro---try-e-catch)**
+- **[For Range](#for-range)**
+- **[Auto](#auto)**
+- **[Funções Lambda](#funções-lambda)**
+- **[Map](#map)**
+- **[Ponteiro Inteligente](#ponteiro-inteligente)**
 
 
 
@@ -51,13 +48,9 @@ melhor entendimento, use 'cout' para ver as saidas e alterações.*/
 
 
 
+# RECURSÃO EXEMPLO - FATORIAL 
 
-/*                                      ###########################################################                                                                             
-                                        ###########################################################
-                                        ################# RECURSÃO EXEMPLO - FATORIAL #############
-                                        ###########################################################
-                                        ###########################################################*/
-
+```cpp
 #include <iostream>
 
 using namespace std;
@@ -109,37 +102,15 @@ void fibonachi(int n){
         cout << 0;
     }
 }
+```
 
+# PILHA 
 
+### PRIMEIRO A ENTRAR ULTIMO A SAIR - FILO
 
+#### utilize a biblioteca stack. <br>Exemplo:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ############################ PILHA ########################
-                                        ###########################################################
-                                        ###########################################################*/
-/*
-PRIMEIRO A ENTRAR ULTIMO A SAIR - FILO
-utilize a biblioteca stack
-Exemplo:
-*/
-
+```cpp
 #include <iostream>
 #include <stack>
 
@@ -162,37 +133,16 @@ int main()
     cout << "stack empty? " << animals.empty() << "\n";
     return 0;
 }
+```
+
+# FILA 
+
+### PRIMEIRO A ENTRAR PRIMEIRO A SAIR - FIFO
+#### Utilize a biblioteca queue.<br>Exemplo:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ############################ FILA #########################
-                                        ###########################################################
-                                        ###########################################################*/
-/*
-PRIMEIRO A ENTRAR PRIMEIRO A SAIR - FIFO
-utilize a biblioteca queue
-Exemplo:
-*/
-
+```cpp
 #include <iostream>
 #include <queue>
 
@@ -217,36 +167,18 @@ int main()
     return 0;
 }
 
+```
 
 
 
 
+# LISTA 
+
+### NÃO TRABALHA COM ORDEM COMO OS ACIMA
+#### Utilize a biblioteca list.<br>Exemplo:
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ############################ LISTA ########################
-                                        ###########################################################
-                                        ###########################################################*/
-/*
-NÃO TRABALHA COM ORDEM COMO OS ACIMA
-utilize a biblioteca list
-Exemplo:
-*/
-
+```cpp
 #include <iostream>
 #include <list>
 
@@ -293,34 +225,18 @@ int main(){
     components.merge(lista2); // Insere os elementos da lista dois ao final da lista components
     return 0;
 }
+```
 
 
 
 
 
+# STRUCT
 
 
+#### Structs são usados normalmente para definir uma estrutura, ou seja, um conjunto que agrupa varias caracteristicas, que podem ser funções e atributos (variaveis)
 
-
-
-
-
-
-
-
-
-
-/*                                      ###########################################################                                     
-                                        ###########################################################
-                                        ############################ STRUCT #######################
-                                        ###########################################################
-                                        ###########################################################*/
-/*
-
-Structs são usados normalmente para definir uma estrutura, ou seja, um conjunto que agrupa varias 
-caracteristicas, que podem ser funções e atributos (variaveis)
-
-*/
+```cpp
 #include <iostream>
 #include <string> //biblioteca para strings
 
@@ -372,6 +288,7 @@ int main(){
 
     return 0;
 }
+```
 
 
 
@@ -381,33 +298,15 @@ int main(){
 
 
 
+# PONTEIROS 
 
 
 
 
 
+#### Ponteiros são usados para apontar/referenciar uma variavel, seu funcionamento é semelhante a uma ponte, em que se pode acessar o valor da variavel em que ele está apontado, de acordo com o endereço armazenado, amplamente usado, e normalmente usado em arrays e listas, possibilitando seu crescimento Ele também é usado em funções, dado a necessidade de alterar o valor de variaveis sem a necessidade de retorno na função.
 
-
-
-
-/*                                      ###########################################################                                     
-                                        ###########################################################
-                                        ########################## PONTEIROS ######################
-                                        ###########################################################
-                                        ###########################################################*/
-
-
-
-
-/*
-Ponteiros são usados para apontar/referenciar uma variavel, seu funcionamento é semelhante a uma ponte,
-em que se pode acessar o valor da variavel em que ele está apontado, de acordo com o endereço armazenado, amplamente usado, e normalmente usado
-em arrays e listas, possibilitando seu crescimento
-Ele também é usado em funções, dado a necessidade de alterar o valor de variaveis sem a necessidade de 
-retorno na função.
-
-*/
-
+```cpp
 
 #include <iostream>
 #include <string> //biblioteca para strings
@@ -465,45 +364,22 @@ int main(){
     return 0;
 }
 
+```
 
 
 
 
 
 
+# Alocação dinamica
 
 
 
 
 
+#### Neste topico será usado o rescurso, malloc, que é usado para alocar memoria para determinada variavel, a seguir um exemplo util usando vetores. <br>Obs.: Vale resaltar que por mais que o vetor funcione sem malloc:<br>1 - a quantidade de elementos é menor doque ele suporta _ ele ou vai ocupar espaços de memoria a menos, por exemplo, um vetor char de 10 espaços, armazena a palavra 'maçã', 6 espaços vão ficar em branco, ou seja, não serão usados, tornando o programa lento, caso isso seja repetido diversas vezes.<br>2- a quantidade de elementos é maio doque ele suporta _ ele ou vai ocupar espaços de memoria a menos, logo, ocupará espaços que não foram 'endereçados ou reservados' á aquele vetor, que consequentemente pode sobrepor os valores de uma outra variavel, dando pane no programa. 
 
-
-
-
-/*                                      ###########################################################                                     
-                                        ###########################################################
-                                        ##################### Alocação dinamica ###################
-                                        ###########################################################
-                                        ###########################################################*/
-
-
-
-
-/*
-Neste topico será usado o rescurso, malloc, que é usado para alocar memoria para determinada variavel,
-a seguir um exemplo util usando vetores.
-Obs.: Vale resaltar que por mais que o vetor funcione sem malloc:
-
-1 - a quantidade de elementos é menor doque ele suporta _ ele ou vai ocupar espaços de memoria a menos,
-por exemplo, um vetor char de 10 espaços, armazena a palavra 'maçã', 6 espaços vão ficar em branco, ou seja,
-não serão usados, tornando o programa lento, caso isso seja repetido diversas vezes.
-
-2- a quantidade de elementos é maio doque ele suporta _ ele ou vai ocupar espaços de memoria a menos,
-logo, ocupará espaços que não foram 'endereçados ou reservados' á aquele vetor, que consequentemente
-pode sobrepor os valores de uma outra variavel, dando pane no programa. 
-
-*/
-
+```cpp
 #include <iostream>
 #include <stdio.h> //gets
 #include <stdlib.h> //malloc
@@ -521,32 +397,19 @@ int main(){
     cout << vetor;
 }
 
+```
 
 
 
 
 
+# VECTOR 
+
+#### Semelhante ao list, porém seu custo de processamento, além da facilidade de localizar valores, superam o list, sendo recomendado seu uso, a não ser que tenha um motivo para usar list ou array vector != vetor
 
 
 
-
-
-
-
-
-
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ############################ VECTOR #######################
-                                        ###########################################################
-                                        ###########################################################*/
-/*
-Semelhante ao list, porém seu custo de processamento, além da facilidade de localizar valores,
-superam o list, sendo recomendado seu uso, a não ser que tenha um motivo para usar list ou array
-vector != vetor
-*/
-
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -590,6 +453,7 @@ int main(){
 
     return 0;
 }
+```
 
 
 
@@ -601,34 +465,21 @@ int main(){
 
 
 
+# STRUCT AVANÇADO E BILBIOTECAS EXTERNAS 
+
+
+#### Neste topico, será descrito formas de como criar sua propria biblioteca, além de utilizar structs <br>Obs.: neste tópico terá marcações indicando arquivos diferentes.
 
 
 
+### ARQUIVO PONTO2D.hpp
+
+#### Arquivos .hpp normalmente servem para armanezar structs e classes
+
+#### ifndef (significado -> se não definido) serve para que não haja duplicidade, ao definir a biblioteca em mais de um arquivo, assim que inserido ele entende que a "variavel" já foi definida, então ele não lê oque está dentro dele. Caso não fique claro: https://www.youtube.com/watch?v=wRq8pxJEpfc
 
 
-
-
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ########## STRUCT AVANÇADO E BILBIOTECAS EXTERNAS #########
-                                        ###########################################################
-                                        ###########################################################*/
-/*
-Neste topico, será descrito formas de como criar sua propria biblioteca, além de utilizar structs 
-
-Obs.: neste tópico terá marcações indicando arquivos diferentes.
-*/
-
-//-----------------------------------------ARQUIVO PONTO2D.hpp----------------------------------------
-
-//Arquivos .hpp normalmente servem para armanezar structs e classes
-
-/*ifndef (significado -> se não definido) serve para que não haja duplicidade, ao definir a
-biblioteca em mais de um arquivo, assim que inserido ele entende que a "variavel" já foi definida,
-então ele não lê oque está dentro dele
-Caso não fique claro: https://www.youtube.com/watch?v=wRq8pxJEpfc
-*/
+```cpp
 #ifndef PONTO2D_H
 /*
 Neste exemplo foi definido a variavel PONTO2D_H (seguindo o nome do arquivo), necessario para 
@@ -651,18 +502,15 @@ struct Ponto2D{
     double calcular_distancia(Ponto2D* ponto);
 };
 #endif // PONTO2D_H
+```
+
+### ARQUIVO PONTO2D.cpp
+
+#### Arquivos .cpp com o mesmo nome do .hpp servem para armanezar funções daquela biblioteca, Como neste exemplo, em que as funções Ponto2D e calcular_distancia referente ao struct Ponto2D, foram definidas neste arquivo. <br>Não esqueça de incluir a biblioteca .hpp
 
 
-//-----------------------------------------ARQUIVO PONTO2D.cpp----------------------------------------
-/*
-Arquivos .cpp com o mesmo nome do .hpp servem para armanezar funções daquela biblioteca,
-Como neste exemplo, em que as funções Ponto2D e calcular_distancia referente ao struct
-Ponto2D, foram definidas neste arquivo
-*/
 
-/*
-Não esqueça de incluir a biblioteca .hpp
-*/
+```cpp
 #include "Ponto2D.hpp"
 #include <cmath> // biblioteca para operações matematicas
 // Coloque o nome do struct::Função, para referenciar a função declarada no arquivo .hpp
@@ -675,11 +523,13 @@ double Ponto2D::calcular_distancia(Ponto2D* ponto){
         // sqrt -> raiz | quadrada por padrão
         return sqrt(((this->x - ponto->x)*(this->x - ponto->x)) +  ((ponto->y - this->y)*(ponto->y - this->y)));
 }
+```
 
 
 
+### ARQUIVO main.cpp
 
-//-----------------------------------------ARQUIVO main.cpp----------------------------------------
+```cpp
 #include <iostream>
 
 #include "Ponto2D.cpp" //em alguns programas em que não identifica a biblioteca
@@ -697,6 +547,7 @@ int main() {
 
     return 0;
 }
+```
 
 
 
@@ -704,23 +555,13 @@ int main() {
 
 
 
+# NEW E DELETE 
 
 
+#### De forma resumida o operador 'new' 'estancia' uma classe,struct... de forma a permanecer na memoria, pois sempre que uma variavel deixa a função, ela é automaticamente excluida da memoria (STACK OU PILHA), já com o 'new' ela é forçada a ficar na memoria, o nome dessa memoria é HEAP. O HEAP é onde apenas o programador controla a entrada e saida de variaveis. E o stack ou pilha é o programa que administra a saida e entrada
 
 
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ###################### NEW E DELETE #######################
-                                        ###########################################################
-                                        ###########################################################*/
-/*
-De forma resumida o operador 'new' 'estancia' uma classe,struct... de forma a permanecer na memoria,
-pois sempre que uma variavel deixa a função, ela é automaticamente excluida da memoria (STACK OU PILHA),
-já com o 'new' ela é forçada a ficar na memoria, o nome dessa memoria é HEAP.
-O HEAP é onde apenas o programador controla a entrada e saida de variaveis
-E o stack ou pilha é o programa que administra a saida e entrada
-*/
-
+```cpp
 #include <iostream>
 
 using namespace std;
@@ -787,33 +628,24 @@ int main(){
     pois ela terá um custo de processamento desnecessario caso não a utilize*/
     return 0;
 }
+```
 
 
 
 
 
 
+# CLASSE 
 
 
+#### Classe é basicamente uma struct turbinada, ela oferece mais opções e segurança 
 
 
+### ARQUIVO PONTO2D.hpp
 
+#### Arquivos .hpp normalmente servem para armanezar structs e classes
 
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ########################## CLASSE #########################
-                                        ###########################################################
-                                        ###########################################################*/
-/*
-Classe é basicamente uma struct turbinada, ela oferece mais opções e segurança 
-*/
-
-//-----------------------------------------ARQUIVO PONTO2D.hpp----------------------------------------
-
-//Arquivos .hpp normalmente servem para armanezar structs e classes
-
-
+```cpp
 #ifndef PONTO2D_H
 #define PONTO2D_H
 #include <iostream>
@@ -839,9 +671,12 @@ class Ponto2D{
     herdar a classe principal*/
 };
 #endif // PONTO2D_H
+```
 
-//-----------------------------------------ARQUIVO PONTO2D.cpp----------------------------------------
+### ARQUIVO PONTO2D.cpp
 
+
+```cpp
 #include "Ponto2D.hpp"
 #include <cmath> 
 Ponto2D::Ponto2D(double x, double y){
@@ -852,8 +687,12 @@ Ponto2D::Ponto2D(double x, double y){
 double Ponto2D::calcular_distancia(Ponto2D* ponto){
         return sqrt(((this->x - ponto->x)*(this->x - ponto->x)) +  ((ponto->y - this->y)*(ponto->y - this->y)));
 }
+```
 
-//-----------------------------------------ARQUIVO main.cpp----------------------------------------
+
+### ARQUIVO main.cpp
+
+```cpp
 #include <iostream>
 
 #include "Ponto2D.cpp" //em alguns programas em que não identifica a biblioteca
@@ -872,24 +711,15 @@ int main() {
 
     return 0;
 }
+```
 
 
 
 
 
+# HERANÇA DE CLASSE 
 
-
-
-
-
-
-
-
-
-
-                                                                /* HERANÇA CLASSE */
-
-
+```cpp
 #include <iostream>
 
 using namespace std;
@@ -954,6 +784,7 @@ int main() {
 
     return 0;
 }
+```
 
 
 
@@ -961,18 +792,10 @@ int main() {
 
 
 
+# VIRTUAL 
 
 
-
-
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ########################### VIRTUAL #######################
-                                        ###########################################################
-                                        ###########################################################*/
-
-
+```cpp
 #include <iostream>
 
 using namespace std;
@@ -1015,6 +838,7 @@ int main(){
 
     return 0;
 }
+```
 
 
 
@@ -1022,19 +846,12 @@ int main(){
 
 
 
+# TRATAMENTO DE ERRO - TRY e CATCH 
 
 
+#### Geralmente usado para pegar erros já conhecidos e trata-los da melhor forma*/
 
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ################### TRATAMENTO DE ERRO ####################
-                                        ####################### TRY e CATCH #######################
-                                        ###########################################################*/
-
-
-/* geralmente usado para pegar erros já conhecidos e trata-los da melhor forma*/
-
-
+```cpp
 #include <iostream>
 #include <vector>
 #include <stdexcept> // biblioteca para o try e catch
@@ -1064,6 +881,7 @@ int main() {
 
     return 0;
 }
+```
 
 
 
@@ -1071,20 +889,11 @@ int main() {
 
 
 
+# FOR RANGE 
 
+#### FOR PERSONALIZADO, de forma a não precisar de muito codigo para iterar 
 
-
-
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ######################### FOR RANGE #######################
-                                        ###########################################################
-                                        ###########################################################*/
-
-/* FOR PERSONALIZADO, de forma a não precisar de muito codigo para iterar */
-
-
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -1106,23 +915,16 @@ int main() {
     return 0;
 }
 
+```
 
 
 
 
 
 
+# AUTO 
 
-
-
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ############################ AUTO #########################
-                                        ###########################################################
-                                        ###########################################################*/
-
-
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -1141,32 +943,16 @@ int main() {
 
     return 0;
 }
+```
 
 
 
 
+# TEMPLATE 
 
+#### Quando uma funcao nao tem um tipo definido de entrada, declarar um template e a melhor forma de ser feito, podendo ser mais eficaz doque o 'auto' 
 
-
-
-
-
-
-
-
-
-
-
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ######################### TEMPLATE ########################
-                                        ###########################################################
-                                        ###########################################################*/
-
-/* quando uma funcao nao tem um tipo definido de entrada, declarar um template 
-e a melhor forma de ser feito, podendo ser mais eficaz doque o 'auto' */
-
+```cpp
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -1201,22 +987,20 @@ int main(){
 
     return 0;
 }
+```
 
 
 
 
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ###################### FUNÇÕES LAMBDA #####################
-                                        ###########################################################
-                                        ###########################################################*/
+# FUNÇÕES LAMBDA 
 
 
-/* funções mais simples de declarar, funciona no c++ 11 ou superior
-Estrutura:
-[ area de captura ](parametros){funcao a ser escrita}; */
+#### Funções mais simples de declarar, funciona no c++ 11 ou superior.<br>Estrutura:
 
+``` [ area de captura ](parametros){funcao a ser escrita}; ```
+
+
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -1262,25 +1046,17 @@ int main() {
     return 0;
 }
 
+```
 
 
 
 
 
+# MAP 
 
 
 
-
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ############################# MAP #########################
-                                        ###########################################################
-                                        ###########################################################*/
-
-
-
-
+```cpp
 #include <iostream>
 #include <map> //biblioteca para o map
 using namespace std;
@@ -1326,28 +1102,16 @@ int main() {
 
     return 0;
 }
+```
 
 
 
+# PONTEIRO INTELIGENTE 
 
 
+#### Tipo de ponteiro, que ao sair do escopo ele é retirado do heap automaticamente 
 
-
-
-
-
-
-
-/*                                      ###########################################################
-                                        ###########################################################
-                                        ##################### PONTEIRO INTELIGENTE ################
-                                        ###########################################################
-                                        ###########################################################*/
-
-
-/* Tipo de ponteiro, que ao sair do escopo ele é retirado do heap automaticamente */
-
-
+```cpp
 #include <iostream>
 #include <memory>
 
@@ -1404,3 +1168,10 @@ int main(){
     }
     return 0;
 }
+
+```
+
+
+
+# REFERENCIAS
+[PLAYLIST CPP CFB](https://www.youtube.com/watch?v=nUQKr-ey86Y&list=PLx4x_zx8csUjczg1qPHavU1vw1IkBcm40)
