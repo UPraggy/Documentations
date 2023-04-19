@@ -2,9 +2,6 @@
 
 ## INDICE 
 
-- **[Introdução](#introdução)**
-
-
 - **[Recursão Exemplo](#recursão-exemplo---fatorial)**
 - **[Pilha](#pilha)**
 - **[Fila](#fila)**
