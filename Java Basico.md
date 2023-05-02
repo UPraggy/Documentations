@@ -579,6 +579,52 @@ public class main{
 }
 
 ```
+## Utilizando metodos estaticos
+#### A palavra reservada static quando usada em um método, o torna utilizável sem que haja a necessidade de instanciar a classe.
+
+### Arquivo Forma2D
+
+```java
+package Ex5Vinculacao;
+
+
+//Classe Pricipal
+public class Forma2D {
+	protected float x;
+	protected float y;
+	
+	public Forma2D(float x, float y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	//metodo da classe
+	public float calculaArea() {
+		return this.x*this.y;
+	}
+	
+	//metodo statico que pode ser chamado sem instanciar
+	public static float saySquareArea(float x, float y) {
+		return x*y;
+	}
+}
+
+```
+
+### Arquivo main
+
+```java
+package Ex5Vinculacao;
+
+public class Main {
+
+	public static void main(String[] args) {
+		System.out.println(Forma2D.saySquareArea(2,8));
+	}
+
+}
+```
+
 
 <br><br>
 <hr/>
@@ -986,7 +1032,7 @@ public class ArrayListExample {
             ArrayList<String> animais = new ArrayList<>();
 
             /* Caso queira criar com posições use
-            ArrayList<String> animais = new ArrayList<>(100);
+            List<String> animais = new ArrayList<>(100);
             */
 
             //Adicionando valores
@@ -1028,6 +1074,8 @@ public class ArrayListExample {
     }
 ```
 
+### Nota 
+#### Seguindo a linha de raciocinio do exemplo anterior, é possível verificar que O objeto é do tipo List e é recebida uma instacia do ArrayList, isso se deve ao conceito de tipo e subtipo, sendo o ArrayList subtipo do List. <br>Um subtipo, não herda os métodos e atributos da classe, e sim a forma que é construída ou se comporta, podendo se ter a alternância entre os tipos e ainda sim a mesma variável aceitar. <br> Toda subclasse é um subtipo, mas nem todos subtipo é uma subclasse, visto que um subtipo pode ser implementado através de uma interface.
 
 
 
