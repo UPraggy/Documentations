@@ -1,0 +1,257 @@
+:root {
+    --bg-color: #DCDCDC;
+    --bg2-color: #fff;
+    --gTxt-color: #000;
+    --gTxt-reverse-color: #fff;
+    --shadowTxt-color: #8f8f8f;/*#a9a9a9;*/
+    --topMenu-color: #DDDDDDed;
+    --redTxt-color: #CC3302;
+    --wtIcon-linkedin: url('../imgs/linkedinBlack.png');
+    --wtIcon-email: url('../imgs/emailBlack.png');
+		--wtIcon-git: url('../imgs/gitBlack.png');
+		--wtIcon-wp: url('../imgs/wpBlack.png');
+}
+	
+
+[data-theme="dark"] {
+    /*_____- Dark Mode -_______*/
+    --bg-color: #575757;
+    --bg2-color: #D2D2D2;
+    --gTxt-color: #fff;
+    --gTxt-reverse-color: #000;
+    --shadowTxt-color: #000;
+    --topMenu-color: #575757ed;
+    --wtIcon-linkedin: url('../imgs/linkedin.png');
+    --wtIcon-email: url('../imgs/email.png');
+		--wtIcon-git: url('../imgs/git.png');
+		--wtIcon-wp: url('../imgs/wp.png');
+}
+
+html {
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--gTxt-color);
+}
+
+a{
+	text-decoration: none;
+	color: var(--gTxt-color);
+}
+
+#contentMain{
+	display: flex;
+  	flex-direction: column;
+  	width: 100%;
+  	min-height: 100vh;
+  	color: var(--gTxt-color);
+}
+
+
+#topMenu{
+	display: flex;
+  flex-direction: row;
+  position: fixed;
+  max-height: 100vh;
+  width: 100%;
+	padding: 1%;
+	padding-left: 2%;
+	background-color: var(--topMenu-color);
+	z-index: 9999999 !important;
+}
+
+#topMenu a{
+	margin-right: 6%;
+	font-size: 1.7em;
+	font-family: 'Cardo', serif;
+}
+#topMenu .topMenuLab:hover{
+  cursor: pointer
+}
+#menuBurguer{
+  display: flex;
+  flex-direction: row;
+  min-width: -webkit-fill-available;
+}
+
+
+.midContent{
+	flex:1;
+  min-height: 100vh;
+	flex-direction: column;
+
+}
+
+.allCenter{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/*__________ M1 ICONS __________*/
+
+.IconImg {
+	flex-direction: column;
+	align-items: initial;
+}
+.IconImg-Mob{
+  display: none;
+}
+.IconImg-Mob div{
+  min-width:45px;
+  min-height:45px;
+  max-width:45px;
+  max-height:45px;
+  width: auto;
+  height: auto;
+  margin: 15% 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  mix-blend-mode: var(--icon-color);
+}
+
+
+/*______M1______*/
+
+#midContent1{
+	align-items: initial;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	padding-bottom: 7%;
+}
+
+#titleM1{
+	font-family: 'Poppins', serif;
+	font-weight: 600;
+	font-size: 2em;
+	margin: 5% 0 3% 0;
+	text-align: center;
+}
+
+.videoM1{
+	width: 50%;
+	aspect-ratio: 1/0.5;
+	margin-bottom: 3%;
+	align-self: center;
+}
+
+.textMidM1{
+	font-size: 1.5em;
+	margin: 1% 20%;
+}
+
+/*______M7______*/
+
+#midContent7{
+	background-color: #000000;
+	min-height: 30vh;
+	color: #FFFFFF;
+}
+
+.infoM7{
+	width: 50%;
+}
+
+.infoM7 div{
+	flex-direction: column;
+	flex: 1 1 50px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+
+.iconM7{
+	position: relative;
+	height: 50px;
+	aspect-ratio: 1/1;
+	background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.txtM7{
+	font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.ttM7{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 800;
+	color: #FF5146;
+}
+
+#inf1M7 .iconM7{
+	background-image: url('../imgs/mapIcon.png');
+}
+
+#inf2M7{
+	margin: 0 12%;
+}
+#inf2M7 .iconM7{
+	background-image: url('../imgs/mailPortIcon.png');
+}
+#inf3M7 .iconM7{
+	background-image: url('../imgs/telPortIcon.png');
+}
+
+.cTxtM7{
+	width: 100%;
+	color: #FFF;
+	text-align: center;
+}
+
+#linkM1{
+	width: 50%;
+	margin: 1% 20%;
+}
+
+#linkM1 div{
+	display: flex;
+	align-items: center;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 600;
+	font-size: 1.2em;
+}
+
+#linkM1 div div{
+	height: 35px;
+	aspect-ratio: 1/1;
+	background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 1%;
+}
+
+#linkM1 div div:hover{
+	cursor: pointer;
+}
+
+#gtSubM1{
+	background-image: var(--wtIcon-git);
+}
+
+#presSubM1{
+	background-image: url('../imgs/linkIcon.png');
+}
+
+#ativoProjM1{
+	color: #0066FF;
+	text-decoration: underline;
+}
+
+#desativadoProjM1{
+	color: #FF0000;
+}
+
+
+#linkM1 #desativadoProjM1:hover{
+	cursor: not-allowed;
+}

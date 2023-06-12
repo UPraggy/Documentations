@@ -1,0 +1,186 @@
+@media (min-width: 768px){
+
+#HM41{
+    font-size: 1.6em;
+    top: 20%;
+    left: 50%;
+}
+
+#HM42{
+    font-size: 3em;
+    top: 22%;
+    left: 30%;
+}
+
+#HM43{
+    font-size: 1.4em;
+    top: 35%;
+    left: 12%;
+}
+#HM44{
+    font-size: 2em;
+    top: 30%;
+    right: 15%;
+}
+#HM45{
+    font-size: 2.4em;
+    top: 30%;
+    right: 30%;
+}
+#HM46{
+    font-size: 1.1em;
+    top: 35%;
+    left: 35%;
+}
+#HM47{
+    font-size: 1.6em;
+    top: 35%;
+    right: 40%;
+}
+
+#HM48{
+    font-size: 1.4em;
+    bottom: 40%;
+    left: 5%;
+}
+
+#HM49{
+    font-size: 1.4em;
+    bottom: 35%;
+    left: 37%;
+}
+#HM410{
+    font-size: 1.6em;
+    bottom: 35%;
+    right: 40%;
+}
+#HM411{
+    font-size: 1.8em;
+    bottom: 40%;
+    right: 18%;
+}
+#HM412{
+    font-size: 1.3em;
+    bottom: 27%;
+    right: 48%;
+}
+#HM413{
+    font-size: 1.3em;
+    bottom: 25%;
+    right: 25%;
+}
+#HM414{
+    font-size: 1.8em;
+    bottom: 17%;
+    right: 42%;
+}
+#HM415{
+    font-size: 1.9em;
+    bottom: 15%;
+    left: 32%;
+}
+#HM416{
+    font-size: 1.2em;
+    bottom: 20%;
+    left: 15%;
+}
+#HM417{
+    font-size: 1.9em;
+    bottom: 26%;
+    left: 25%;
+}
+
+}
+
+@media (max-width: 767px){
+#HM41{
+    font-size: 0.8em;
+    top: 22%;
+    left: 38%;
+}
+
+#HM42{
+    font-size: 1.3em;
+    top: 29%;
+    left: 22%;
+}
+
+#HM43{
+    font-size: 0.8em;
+    top: 36%;
+    left: 10%;
+}
+#HM44{
+    font-size: 0.8em;
+    top: 35%;
+    right: 6%;
+}
+#HM45{
+    font-size: 1.3em;
+    top: 27%;
+    right: 23%;
+}
+#HM46{
+    font-size: 0.7em;
+    top: 38%;
+    left: 30%;
+}
+#HM47{
+    font-size: 0.8em;
+    top: 36%;
+    right: 29%;
+}
+
+#HM48{
+    font-size: 0.8em;
+    bottom: 35%;
+    left: 4%;
+}
+
+#HM49{
+    font-size: 0.8em;
+    bottom: 35%;
+    left: 31%;
+}
+#HM410{
+    font-size: 0.8em;
+    bottom: 35%;
+    right: 29%;
+}
+#HM411{
+    font-size: 0.7em;
+    bottom: 38%;
+    right: 8%;
+}
+#HM412{
+    font-size: 0.7em;
+    bottom: 26%;
+    right: 44%;
+}
+#HM413{
+    font-size: 0.6em;
+    bottom: 27%;
+    right: 8%;
+}
+#HM414{
+    font-size: 1em;
+    bottom: 17%;
+    right: 22%;
+}
+#HM415{
+    font-size: 1.2em;
+    bottom: 15%;
+    left: 37%;
+}
+#HM416{
+    font-size: 0.9em;
+    bottom: 16%;
+    left: 3%;
+}
+#HM417{
+    font-size: 1.3em;
+    bottom: 24%;
+    left: 18%;
+}
+
+}
