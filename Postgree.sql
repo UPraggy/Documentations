@@ -91,7 +91,3 @@ select sum(salario) from funcionarios;
 select nome, salario from funcionarios
 order by salario desc
 limit 3;
-
-
-
-
