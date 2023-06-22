@@ -55,8 +55,14 @@ insert into funcionarios values
 (5,'Ellis','jellis4@sciencedirect.com','Feminino','Beleza','9/19/2002',63702,'Software Engineer III',1),
 (6,'Phillips','bphillips5@time.com','Masculino','Roupas','8/21/2013',118497,'Executive Secretary',1),
 (7,'Williamson','rwilliamson6@ted.com','Masculino','Beleza','5/14/2006',67470,'Dental Hygienist',2),
-(8,'Harris','aharris7@ucoz.com','Feminino','Roupas','8/12/2003',84427,'Safety Technician I',1),
-(9,'fesf','fsef@ucoz.com','Feminino','Roupas','8/12/2003',84427,'Safety Technician I',1);
+(8,'Harris','aharris7@ucoz.com','Feminino','Roupas','8/12/2003',84427,'Safety Technician I',1);
+
+
+--  AUTO INCREMENT EM POSTGREESQL
+-- TENTE IFORMAR NA PRIMARY KEY UM SELECT QUE RETORNA A QUANTIDADE DE REGISTROS MAIS 1
+--  LEMBRANDO QUE DA APENAS PARA FAZER UMA INSERSAO DE CADA VEZ
+--  A NAO SER QUE FACA [ COUNT+1, COUNT+2, COUNT+3...  ]
+insert into funcionarios values  (((select count(*) from funcionarios)+1),'fesf','fsef@ucoz.com','Feminino','Roupas','8/12/2003',84427,'Safety Technician I',1);
 
 -- ############################# CONTANDO E OPERACOES #############################
 -- Contando
