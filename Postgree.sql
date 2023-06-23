@@ -119,3 +119,89 @@ from funcionarios;
 select nome, salario from funcionarios
 order by salario desc
 limit 3;
+
+--  TRIGGERS
+
+
+--  CRIANDO TABELA PARA TESTE
+
+select session_user; -- usuario atual
+
+
+create table funcionariosLogOperation(
+  idFunction integer PRIMARY KEY,
+  actualUser char(10),
+  operation varchar(20),
+  dateOperation date
+);
+
+/*
+Triggers são similar a views, mas podem realizar operações podendo ser executadas 
+automaticamente antes ou depois de uma operação
+
+
+CRIANDO UMA TRIGGER
+
+CREATE OR REPLACE FUNCTION funcaoNome() -- crie ou substitua a funcao
+RETURNS trigger -- retorne uma trigger
+AS $$ -- delimitador padrao postgreesql
+    begin
+        
+        SEUS COMANDOS DE SQL
+          
+          
+        return NEW; -- TRABALHANDO COM NEW OU OLD
+    end;
+$$ LANGUAGE plpgsql; -- LINGUGAGEM USADA
+ 
+CREATE TRIGGER nomeTrigger 
+(BEFORE/AFTER) (INSERT/UPDATE/DELETE) ON tabelaNome 
+    FOR EACH ROW EXECUTE PROCEDURE funcaoNome();
+    
+    
+    
+
+USE THE OPTIONS "BEFORE OR AFTER" FOR RUN THE COMMAND BEFORE OR AFTER AN ACTION
+
+use a opcao "INSERT OR UPDATE OR DELETE" para selecionar a acao para ser 'assistida' 
+pela trigger
+
+
+Note: o "OLD" pode ser para retornar valores dos registros antes de serem mudados  (depois do delete ou update)
+esse comando ou parametro retorna o valor antigo
+
+o "NEW" serve para registros depois de serem mudados (depois do update ou INSERT) esse comando ou parametro 
+retorna o valor novo
+
+veja todos os aspectos no exemplo abaixo
+*/
+
+CREATE OR REPLACE FUNCTION funcionariosLogfunction()
+RETURNS trigger
+AS $$
+    begin
+        insert into funcionariosLogOperation values(
+          ((select count(*) from funcionariosLogOperation)+1),
+          (select session_user),
+          'INSERT',
+          (select SPLIT_PART((CAST(now() AS TEXT)),'.',1))
+          );
+          
+        return NEW; 
+    end;
+$$ LANGUAGE plpgsql;
+ 
+CREATE TRIGGER executeFuncionariosLogOperation
+AFTER INSERT ON funcionarios
+    FOR EACH ROW EXECUTE PROCEDURE funcionariosLogfunction();
+    
+    
+    
+insert into funcionarios (((select count(*) from funcionarios)+1), 'Roger','roger@sciencedirect.com',
+                          'Masculino', 'Automotivo','5/12/2003',2500,'Mecanico',2)
+
+
+select * from funcionariosLogOperation;
+
+
+
