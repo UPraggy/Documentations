@@ -120,34 +120,7 @@ select nome, salario from funcionarios
 order by salario desc
 limit 3;
 
-
--- ############################# PROCEDURES  ##################################### 
--- Para criar uma procedure em postgreesql
-
--- create or replace procedure procedureNome(parametros tipoDoParametro)
-
--- language plpgsql
-
--- as $$
-
--- declare
-
--- -- declaracao de variaveis
-
--- begin
-
--- -- corpo de código
-
--- end $$;
-
-
-
--- para chamar USE
--- call procedureNome(parametros)
-
-
-
---  ##################################### TRIGGERS ##################################### 
+--  TRIGGERS
 
 
 --  CRIANDO TABELA PARA TESTE
@@ -159,8 +132,9 @@ create table funcionariosLogOperation(
   idFunction integer PRIMARY KEY,
   actualUser varchar(30),
   operation varchar(20),
-  dateOperation char(19)
+  dateOperation timestamp
 );
+
 
 /*
 Triggers são similar a views, mas podem realizar operações podendo ser executadas 
@@ -169,7 +143,7 @@ automaticamente antes ou depois de uma operação
 
 CRIANDO UMA TRIGGER
 
-CREATE OR REPLACE FUNCTION funcaoNome() -- crie ou substitua a funcao/procedure
+CREATE OR REPLACE FUNCTION funcaoNome() -- crie ou substitua a funcao
 RETURNS trigger -- retorne uma trigger
 AS $$ -- delimitador padrao postgreesql
     begin
@@ -211,7 +185,8 @@ AS $$
           ((select count(*) from funcionariosLogOperation)+1),
           (select session_user),
           'INSERT',
-          (select SPLIT_PART((CAST(now() AS TEXT)),'.',1))
+          -- (select SPLIT_PART((CAST(now() AS TEXT)),'.',1)) data sem milisegundos
+          now()
           );
           
         return NEW; 
@@ -229,19 +204,6 @@ insert into funcionarios values (((select count(*) from funcionarios)+1), 'Roger
 
 
 select * from funcionariosLogOperation;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
