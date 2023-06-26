@@ -58,11 +58,24 @@ insert into funcionarios values
 (8,'Harris','aharris7@ucoz.com','Feminino','Roupas','8/12/2003',84427,'Safety Technician I',1);
 
 
---  AUTO INCREMENT EM POSTGREESQL
+--  ############################# AUTO INCREMENT EM POSTGREESQL  #############################
+
 -- TENTE IFORMAR NA PRIMARY KEY UM SELECT QUE RETORNA A QUANTIDADE DE REGISTROS MAIS 1
 --  LEMBRANDO QUE DA APENAS PARA FAZER UMA INSERSAO DE CADA VEZ
 --  A NAO SER QUE FACA [ COUNT+1, COUNT+2, COUNT+3...  ]
-insert into funcionarios values  (((select count(*) from funcionarios)+1),'fesf','fsef@ucoz.com','Feminino','Roupas','8/12/2003',84427,'Safety Technician I',1);
+ insert into funcionarios values  (((select count(*) from funcionarios)+1),'fesf','fsef@ucoz.com','Feminino','Roupas','8/12/2003',84427,'Safety Technician I',1);
+-- há outra maneira que é utilizando sequencia 
+-- CREATE SEQUENCE idiots_idiotid_seq AS integer;
+-- CREATE TABLE idiots (
+--     IdiotId integer NOT NULL DEFAULT nextval('idiots_idiotid_seq'),
+--     IdiotName VARCHAR
+-- );
+-- ALTER SEQUENCE idiots_idiotid_seq OWNED BY Idiots.IdiotId;
+
+
+
+
+
 
 -- ############################# CONTANDO E OPERACOES #############################
 -- Contando
