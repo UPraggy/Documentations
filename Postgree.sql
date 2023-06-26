@@ -238,13 +238,13 @@ select * from funcionariosLogOperation;
 -- EXPORTANDO
 -- copy funcionarios -- envia a tabela/view para
 -- to 'd:\Usuarios\15340437647\Desktop\relatiorio.csv' -- esta localizacao
--- delimiter ';' -- com o seguinte delimitador de dados
+-- delimiter ',' -- com o seguinte delimitador de dados
 -- csv header; -- coloque o cabeçalho das colunas
 
 -- IMPORTANDO
 -- copy funcionarios -- tabela/view de destino
 -- from 'd:\Usuarios\15340437647\Desktop\relatiorio.csv' -- origem dos dados
--- delimiter ';' -- com o seguinte delimitador de dados
+-- delimiter ',' -- com o seguinte delimitador de dados
 -- csv header; -- coloque o cabeçalho das colunas
 
 
