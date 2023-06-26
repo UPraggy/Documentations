@@ -120,7 +120,19 @@ select nome, salario from funcionarios
 order by salario desc
 limit 3;
 
---  TRIGGERS
+
+-- #############################  VIEWS ############################# 
+
+
+create table GETVariancia as
+select round(stddev_pop(salario),2) as "DESVIO PADRAO",
+round(var_pop(salario),2) as "VARIANCIA"
+from funcionarios;
+
+
+select * from GETVariancia;
+
+-- #############################  TRIGGERS ############################# 
 
 
 --  CRIANDO TABELA PARA TESTE
@@ -204,6 +216,5 @@ insert into funcionarios values (((select count(*) from funcionarios)+1), 'Roger
 
 
 select * from funcionariosLogOperation;
-
 
 
