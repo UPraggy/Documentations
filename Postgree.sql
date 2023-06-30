@@ -248,7 +248,12 @@ select * from funcionariosLogOperation;
 -- csv header; -- coloque o cabeçalho das colunas
 
 
+-- ############################# FORMATANDO STRING #############################
+
+select distinct departamento from funcionarios; -- Impede repetição de uma mesma string
 
 
+select distinct upper(departamento) from funcionarios; -- Tudo Maiusculo (lower para minusculo)
 
 
+select nome || ' - dpto: ' || departamento from funcionarios; -- o simbolo '||' serve para concatenar strings
