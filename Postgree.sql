@@ -74,7 +74,7 @@ insert into funcionarios values
 
 
 
-
+select nome from funcionarios where nome LIKE '%a%'; -- filtro contém parte de uma string
 
 
 -- ############################# CONTANDO E OPERACOES #############################
@@ -257,3 +257,14 @@ select distinct upper(departamento) from funcionarios; -- Tudo Maiusculo (lower 
 
 
 select nome || ' - dpto: ' || departamento from funcionarios; -- o simbolo '||' serve para concatenar strings
+
+
+select TRIM(nome) from funcionarios; -- Trim tira os espaços antes e após
+
+select nome, (nome LIKE '%a%') from funcionarios; 
+
+select nome, (case when (nome LIKE '%a%') = true
+then 1
+else 0 end)
+from funcionarios; 
+
